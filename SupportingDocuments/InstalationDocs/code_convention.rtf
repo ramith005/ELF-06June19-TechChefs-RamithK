@@ -1,0 +1,121 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil\fcharset2 Symbol;}}
+{\*\generator Riched20 10.0.17763}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\b\f0\fs48\lang9 Java Code Conventions\par
+\fs22 Why Code Conventions\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0  improve the readability of the software.\b\par
+{\pntext\f2\'B7\tab}\b0  Allow Other developers to understand new code more quickly and thoroughly.\b\par
+
+\pard\sa200\sl276\slmult1 File Extensions in Java\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0 Java source will have the .java extension.\par
+{\pntext\f2\'B7\tab}Java Byte code will have the .class extension.\par
+
+\pard\sa200\sl276\slmult1\par
+\b Java Source Files\line\b0 Java source files have the following ordering:\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Beginning comments.\line Comment should be written at the top of the program which describes the date, a copyright notice, and also a brief description of the purpose of the program\par
+{\pntext\f2\'B7\tab}Package and Import statements\line The first non comment line in the java program is the pacake state ment then the import statement\par
+{\pntext\f2\'B7\tab}Class and interface declarations.\line Follow the below order for the classes and interfaces for the java programs\line 1 comment (/**...*/)\par
+
+\pard\sa200\sl276\slmult1\tab 2 class or interface statement\par
+\tab 3 Class/interface implementation comment (/*...*/), if necessary\par
+\tab 4 Class (static) variables First the public class variables, then the protected, and then \tab the private.\par
+\tab 5 Instance variables First public, then protected, and then private.\par
+\tab 6 Constructors\line\tab 7 Methods\par
+\b Indentation\line\b0 Four spaces should be used as the unit of indentation\line\par
+\b Line Length\line\b0 Avoid lines longer than 80 characters, since they\rquote re not handled well by many terminals and tools\line\line\b Wrapping Lines\line\b0 When an expression will not fit on a single line, break it according to these general principles:\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Break after a comma.\par
+{\pntext\f2\'B7\tab}\f1 Break before an operator.\f0\par
+{\pntext\f2\'B7\tab}\f1 Prefer higher-level breaks to lower-level breaks.\f0\par
+{\pntext\f2\'B7\tab}\f1 Align the new line with the beginning of the expression at the same level on the previous\f0\lang1033  line\lang9\par
+{\pntext\f2\'B7\tab}\f1 If the above rules lead to confusing code or to code that\rquote s squished up against the right\f0\lang1033  \f1\lang9 margin, just indent 8 spaces instead\f0 .\par
+
+\pard\sa200\sl276\slmult1\b Comments\line\b0 Java programs can have two kinds of comments one for the Implementation and other for the Documentation\line\line  \b Implementation Comment Formats\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0 Single line comment\par
+{\pntext\f2\'B7\tab} Trailing Comments\par
+{\pntext\f2\'B7\tab}End-Of-Line Comments\par
+{\pntext\f2\'B7\tab} Block Comments\par
+
+\pard\sa200\sl276\slmult1\b Declarations in Java\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0  Number Per Line - One declaration per line is recommended\par
+
+\pard\sa200\sl276\slmult1\b Placement in Java\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0 Put declarations only at the beginning of blocks\par
+
+\pard\sa200\sl276\slmult1\b Initialization\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0 Try to initialize local variables where they\rquote re declared\par
+
+\pard\sa200\sl276\slmult1\b Class and Interface Declarations\par
+\b0 When coding Java classes and interfaces, the following formatting rules should be followed:\line\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 No space between a method name and the parenthesis \ldblquote (\ldblquote  starting its parameter list.\par
+{\pntext\f2\'B7\tab}\f1 Open brace \ldblquote\{\rdblquote  appears at the end of the same line as the declaration statement\f0\lang1033 .\lang9\par
+{\pntext\f2\'B7\tab}\f1 Closing brace \ldblquote\}\rdblquote  starts a line by itself indented to match its corresponding opening\f0\lang1033  statement,\f1\lang9 except when it is a null statement the \ldblquote\}\rdblquote  should appear immediately after \f0\lang1033 the "\{"\lang9 .\par
+
+\pard\sa200\sl276\slmult1\b Statements\line\b0 Simple Statements -Each line should contain at most one statement. \line Compound Statements - Compound statements are statements that contain lists of statements enclosed in braces\par
+ \b return Statements\line\b0 A return statement with a value should not use parentheses unless they make the return value more obvious in some way. \par
+\b if, if-else, if-else-if-else Statements\line\b0 The if-else class of statements should have the following form:\par
+if (condition) \{\par
+statements;\par
+\}\par
+if (condition) \{\par
+statements;\par
+\} else \{\par
+statements;\par
+\}\par
+if (condition) \{\par
+statements;\par
+\} else if (condition) \{\par
+statements;\par
+\} else if (condition) \{\par
+statements;\par
+\}\par
+\b for Statements\par
+\b0 A for statement should have the following form:\par
+for (initialization; condition; update) \{statements;\}\par
+\par
+\b while Statements\par
+\b0 A while statement should have the following form:\par
+while (condition) \{\par
+statements;\par
+\}\par
+An empty while statement should have the following form:\par
+while (condition);\par
+\line\b do-while Statements\b0\par
+A do-while statement should have the following form:\par
+do \{\par
+statements;\par
+\} while (condition);\par
+\b switch Statements\b0\line A switch statement should have the following form:\par
+switch (condition) \line\{\line\tab case ABC:\line\tab\tab statements;\line\tab case DEF:\line\tab\tab statements;\line\tab\tab break;\line\tab case XYZ:\line\tab\tab statements;\line\tab\tab break;\line\tab default:\line\tab\tab statements;\line\tab\tab break;\line\}\par
+Every time a case falls through (doesn\rquote t include a break statement), add a comment where the\par
+break statement would normally be. This is shown in the preceding code example with the\par
+/* falls through */ comment.\par
+\b try-catch Statements\par
+\b0 A try-catch statement should have the following format:\par
+try \{\line\tab statements;\line\} catch (ExceptionClass e) \{\line\tab statements;\par
+\}\par
+\b Naming Conventions\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0 Classes - Class names should be nouns, in mixed casewith the first letter of each internal word capitalized.\b\par
+{\pntext\f2\'B7\tab}\b0 Interfaces - Interface names should be capitalized like class names.\b\par
+{\pntext\f2\'B7\tab}\b0 Methods - Methods should be verbs, in mixed case with the first letter lowercase, with the first letter of each internal word capitalized.\b\par
+{\pntext\f2\'B7\tab}\b0 Variables - Except for variables, all instance, class, and class constants are in mixed case with a lowercase first letter. Internal words start with capital letters.\b\par
+{\pntext\f2\'B7\tab}\b0 Constants - The names of variables declared class constants and of ANSI constants should be all uppercase with words separated by underscores (\ldblquote _\rdblquote ). (ANSI constants should be avoided, for ease of debugging.)\b\par
+
+\pard\sa200\sl276\slmult1 Programming Practices\par
+Providing Access to Instance and Class Variables\line\b0 Don\rquote t make any instance or class variable public without good reason. Often, instance variables don\rquote t need to be explicitly set or gotten\f1\emdash often that happens as a side effect of\f0\lang1033  \f1\lang9 method calls.\par
+\b Referring to Class Variables and Methods\b0\f0\line Avoid using an object to access a class (static) variable or method. Use a class name instead.\par
+For example:\line classMethod(); //OK\line AClass.classMethod(); //OK\line anObject.classMethod(); //AVOID!\par
+\b Constants\line\b0 Numerical constants (literals) should not be coded directly, except for -1, 0, and 1, which can appear in a for loop as counter values.\par
+\b Variable Assignments\par
+\b0 Avoid assigning several variables to the same value in a single statement. It is hard to read.\par
+\line\b\par
+}
+ 
