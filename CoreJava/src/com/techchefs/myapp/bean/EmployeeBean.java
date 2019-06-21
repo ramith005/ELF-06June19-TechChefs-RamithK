@@ -6,9 +6,24 @@ public class EmployeeBean {
 	private String name;
 	private String department;
 	private double salary;
-	private int age;;
+	private int age;
 	private Date joingDate;
 	private String gender;
+	
+	public EmployeeBean() {
+		super();
+	}
+	
+	public EmployeeBean(int id, String name, String department, double salary, int age, Date joingDate, String gender) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.department = department;
+		this.salary = salary;
+		this.age = age;
+		this.joingDate = joingDate;
+		this.gender = gender;
+	}
 	
 	public int getId() {
 		return id;
