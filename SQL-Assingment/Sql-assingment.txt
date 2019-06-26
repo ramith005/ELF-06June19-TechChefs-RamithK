@@ -1,0 +1,10 @@
+1.select * from employee where job='SSE' and deptno=30;
+2.select * from employee where deptno=40 and salary>3000;
+3.select * from employee where deptno not in(10,20);
+4.select * from employee where job in ('SSE','PM') and deptno in (10,20) and salary between 1000 AND 3000;
+5.select * from employee where salary not between 1000 AND 2000 and deptno in (10,20) and job not in ('PM');
+6.select * from employee order by salary DESC;
+7.select max(salary),min(salary),sum(salary) from employee;
+8.select count(*) from employee where job='SSE' and deptno=20;
+9.select max(salary) as 'highest sal', min(salary) as 'lowest sal' from employee where job='SSE';
+10.select sum(salary) as 'total salary' from employee where deptno in (10,20,30,40);
