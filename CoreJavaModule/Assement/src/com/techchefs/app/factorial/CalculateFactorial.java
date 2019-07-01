@@ -29,20 +29,18 @@ public class CalculateFactorial {
 		return fact;
 	}
 	
+	/**
+	 * Function to calculate factorial with lambda
+	 * @param x
+	 * @return int
+	 */
 	public int lambdaFact(int x) {
-		/* 
-		 * (x)->{
-		 * 	  for(int i=1;i<=x;i++) {
-		 * 		fact = fact * i;
-		 * 	  }
-		 * };
-		 * /*
-		 * 
-		 * }
-		 * 
-		 * */
-		//
 		
+		Function<Integer,Integer> f = (n) -> {
+            for (int i = 1; i <= n; i++)
+            fact = i * fact;
+            return fact;
+        };
 		
 		return fact;
 	}

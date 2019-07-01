@@ -1,4 +1,6 @@
 package com.techchefs.app.factorial;
+import java.util.function.Function;
+
 /**
  * 
  * @author Ramith
@@ -14,6 +16,7 @@ public class FactCalulation {
 		
 		
 		log.info("Fact Without Lambda  "+cf.calculateFact(5));
+		log.info("Fact With Lambda  "+cf.lambdaFact(5));
 		
 	}
 
