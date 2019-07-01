@@ -19,7 +19,7 @@ public class CalculateFactorial {
 	/**
 	 * Function to calculate factorial without lambda
 	 * @param val
-	 * @return int
+	 * @return int  
 	 */
 	public int calculateFact(int val) {
 		for(int i=1;i<=val;i++) {
