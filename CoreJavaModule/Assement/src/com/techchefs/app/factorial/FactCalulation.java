@@ -3,7 +3,7 @@ import java.util.function.Function;
 
 /**
  * 
- * @author Ramith
+ * @author Ramith  
  * WAP to calculate factorial using lambda expression
  */
 import lombok.extern.java.Log;
