@@ -1,0 +1,61 @@
+1. select * from employee where deptno=20; 
+
+2. select * from employee where salary>2000;
+
+3. select * from employee where job_type='software developer';
+
+4. select * from employee where deptno in (10,20,40);
+
+5. select * from employee where fname like 's%';
+
+6. select * from employee where fname like '_L%';
+
+7. select * from employee where fname like '%a%a%';
+
+8. select * from employee where fname like '%E_';
+
+9. select * from employee where fname like '_____';
+
+10. select * from employee where salary between 20000 and 30000;
+
+11. select * from employee where job_type='software developer' and deptno=30;
+
+12. select * from employee where job_type='software developer' and salary>5000;
+
+13. select * from employee where deptno not in (10,20);
+
+14. select * from employee where job_type not in ('software developer','clerk') and deptno in (10,20) salary between 1000 and 3000;
+
+15. select * from employee where salary not between 10000 and 20000 and deptno in (10,20,30) and job_type!='salesman';
+
+16. select * from employee order by salary DESC;
+
+17. select max(salary),min(salary),avg(salary) from employee;
+
+18. select * from employee where job_type='software developer' and deptno=20;
+
+19. select max(salary),min(salary) from employee where job_type='salesman';
+
+20. select sum(salary) from employee group by deptno;
+
+
+
+21. SELECT * from employee where ename like '_____' and job_type like '_____';
+
+22. SELECT * from employee where job_type like 'soft%';
+
+23. select max(salary),job_type from employee group by job_type;
+
+24. select count(ename),deptno from employee group by deptno;
+
+25. select min(salary),ename,job_type from employee where ename not like 's%' group by job_type;
+
+26. select e.ename,d.dname from employee e inner join department d on e.deptno=d.deptno where d.dname='java' ;
+
+27. select d.dname from department d inner join employee e on e.deptno=d.deptno where job_type='software developer';
+
+28. select max(salary) from employee where salary <>(select max(salary) from employee );
+
+29. select max(salary) from employee where salary < (select max(salary) from employee where salary<>(select max(salary) from employee));
+
+30. select min(salary) from employee where salary > (select min(salary) from employee where salary>(select min(salary) from employee where salary <>(select min(salary) from employee)));
