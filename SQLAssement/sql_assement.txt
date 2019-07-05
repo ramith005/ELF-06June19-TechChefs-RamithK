@@ -20,7 +20,7 @@ SELECT * FROM EMPLOYEE_INFO WHERE SALARY <= 30000
 SELECT NAME,SALARY,(SALARY*12) AS 'annual salary' FROM EMPLOYEE_INFO WHERE DESIGNATION='clerks'
 
 8.Write a query to display all the details of Employee Whoever Hired after Feb of 2013.
-SELECT * FROM EMPLOYEE_INFO WHERE
+SELECT * FROM EMPLOYEE_INFO WHERE YEAR(joining_date ) > 2013
 
 9.Write a query to display managers working in deptno 20 only if salary is greater than 2500.
 SELECT * FROM EMPLOYEE_info WHERE DESIGNATION='managers'  SALARY>2500 AND DEPT_ID IN 20
