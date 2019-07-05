@@ -11,7 +11,7 @@ SELECT * FROM EMPLOYEE_INFO WHERE DESIGNATION='salesman';
 SELECT * FROM EMPLOYEE_INFO WHERE dept_id=20;
 
 5.Write a query to display all the Employees DOB before 1994.
-SELECT * FROM EMPLOYEE_INFO WHERE
+SELECT * FROM EMPLOYEE_INFO WHERE YEAR(DOB) < 1994;
 
 6.Write a query to display all the employees whose annual salary is less than 30,000.
 SELECT * FROM EMPLOYEE_INFO WHERE SALARY <= 30000
