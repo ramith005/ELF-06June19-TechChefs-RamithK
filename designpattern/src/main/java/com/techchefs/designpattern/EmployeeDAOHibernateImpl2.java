@@ -66,7 +66,7 @@ public class EmployeeDAOHibernateImpl2 implements EmployeeDAO {
 	public boolean deleteEmployeeInfo(int id) {
 		Transaction txn = null;
 		EmployeeInfoBean bean = new EmployeeInfoBean();
-				
+		bean.setId(id);		
 		try {
 			Session session = HibernateUtil.openSession();
 			txn = session.beginTransaction();

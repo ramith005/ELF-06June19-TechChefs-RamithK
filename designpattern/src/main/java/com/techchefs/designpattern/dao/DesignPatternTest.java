@@ -69,6 +69,7 @@ public class DesignPatternTest {
 //		empInf.setManagerId(1);
 //		empInf.setDepartmentId(1);
 		//log.info("Created employee " +dao.createEmployee(empInf));
+    	dao.deleteEmployeeInfo(10);
 		log.info("Delete employee " +dao.deleteEmployeeInfo(10));
     }// end of main
     
