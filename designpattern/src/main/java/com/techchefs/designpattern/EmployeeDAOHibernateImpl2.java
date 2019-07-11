@@ -4,13 +4,14 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-
+import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import com.techchefs.designpattern.beans.EmployeeInfoBean;
 import com.techchefs.designpatterns.util.HibernateUtil;
@@ -18,9 +19,16 @@ import com.techchefs.designpatterns.util.HibernateUtil;
 public class EmployeeDAOHibernateImpl2 implements EmployeeDAO {
 
 	@Override
-	public ArrayList<EmployeeInfoBean> getAllmployeeInfo() {
-		//TO DO
-		return null;
+	public List<EmployeeInfoBean> getAllmployeeInfo() {
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session session = factory.openSession();
+		
+		  String hql = " from EmployeeInfoBean"; 
+		  Query query = session.createQuery(hql); 
+		  List<EmployeeInfoBean> employeeInfoBeans = query.list();
+		  
+			 
+		  return employeeInfoBeans;
 	}
 
 	@Override
@@ -36,7 +44,9 @@ public class EmployeeDAOHibernateImpl2 implements EmployeeDAO {
 		
 		return bean;
 	}
-	
+	/**
+	 * Function to save or update the employee
+	 */
 	public boolean saveOrUpdate(EmployeeInfoBean bean) {
 		Transaction txn = null;
 		try {
@@ -53,16 +63,25 @@ public class EmployeeDAOHibernateImpl2 implements EmployeeDAO {
 	}
 	
 	@Override
+	/**
+	 * Function to create the employee
+	 */
 	public boolean createEmployee(EmployeeInfoBean bean) {
 		return saveOrUpdate(bean);
 	}
 
 	@Override
+	/**
+	 * Function to update the employee
+	 */
 	public boolean updateEmployee(EmployeeInfoBean bean) {
 		return false;
 	}
 
 	@Override
+	/**
+	 * Function to delete the Employee with the employee id passed as integer
+	 */
 	public boolean deleteEmployeeInfo(int id) {
 		Transaction txn = null;
 		EmployeeInfoBean bean = new EmployeeInfoBean();
@@ -81,6 +100,9 @@ public class EmployeeDAOHibernateImpl2 implements EmployeeDAO {
 	}
 
 	@Override
+	/**
+	 * Function to delete the Employee with the employee id passed as integer
+	 */
 	public boolean deleteEmployeeInfo(String id) {
 		return deleteEmployeeInfo(Integer.parseInt(id));
 	}

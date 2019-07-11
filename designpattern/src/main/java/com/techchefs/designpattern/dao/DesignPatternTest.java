@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.techchefs.designpattern.EmployeeDAO;
 import com.techchefs.designpattern.EmployeeDAOFactory;
@@ -28,13 +29,15 @@ public class DesignPatternTest {
 //    	printData(dao.getEmployeeInfo(1));
 //    	printData(dao.getEmployeeInfo("2"));
     	
-		/*
-		 * ArrayList<EmployeeInfoBean> beans = dao.getAllmployeeInfo();
-		 * for(EmployeeInfoBean bean : beans) { printData(bean); }
-		 */
+		
+		  List<EmployeeInfoBean> beans = dao.getAllmployeeInfo();
+		  for(EmployeeInfoBean bean : beans) { 
+			  printData(bean); 
+		  }
+		 
     	
     	//Create an Employee Info
-    	EmployeeInfoBean empInf = new EmployeeInfoBean();
+//    	EmployeeInfoBean empInf = new EmployeeInfoBean();
 //		empInf.setId(10);
 //		empInf.setName("new Employee");
 //		empInf.setAge(21);
@@ -69,8 +72,8 @@ public class DesignPatternTest {
 //		empInf.setManagerId(1);
 //		empInf.setDepartmentId(1);
 		//log.info("Created employee " +dao.createEmployee(empInf));
-    	dao.deleteEmployeeInfo(10);
-		log.info("Delete employee " +dao.deleteEmployeeInfo(10));
+    	//dao.deleteEmployeeInfo(10);
+		//log.info("Delete employee " +dao.deleteEmployeeInfo(10));
     }// end of main
     
     private static void printData(EmployeeInfoBean bean) {

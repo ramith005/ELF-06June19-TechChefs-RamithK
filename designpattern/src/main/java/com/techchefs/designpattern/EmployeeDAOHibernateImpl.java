@@ -4,20 +4,41 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import com.techchefs.designpattern.beans.EmployeeInfoBean;
+import com.techchefs.designpatterns.util.HibernateUtil;
 
+import lombok.extern.java.Log;
+
+@Log
 public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
 	@Override
-	public ArrayList<EmployeeInfoBean> getAllmployeeInfo() {
-		//TO DO
-		return null;
+	public List<EmployeeInfoBean> getAllmployeeInfo() {
+		// Write the query to fetch all the data from the Bean class'EmployeeInfoBean'
+		// and store in a String
+		
+//			Configuration cfg = new Configuration();
+//			cfg.configure("hibernate.cfg.xml");
+//			cfg.addAnnotatedClass(EmployeeInfoBean.class);
+//			SessionFactory sfactory = cfg.buildSessionFactory();
+			
+			SessionFactory factory = HibernateUtil.getSessionFactory();
+			Session session = factory.openSession();
+			
+			  String hql = " from EmployeeInfoBean"; 
+			  Query query = session.createQuery(hql); 
+			  List<EmployeeInfoBean> employeeInfoBeans = query.list();
+			  
+				 
+		return employeeInfoBeans;
 	}
 
 	@Override
@@ -53,7 +74,6 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
 	@Override
 	public boolean createEmployee(EmployeeInfoBean bean) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

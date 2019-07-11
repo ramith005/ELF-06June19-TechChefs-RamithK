@@ -19,7 +19,7 @@ public class HibernateUtil {
 					.buildSessionFactory();
 	}
 	
-	private static SessionFactory getSessionFactory() {
+	public static SessionFactory getSessionFactory() {
 		if(sfactory == null) {
 			sfactory = buildSessionFactory();
 		}
