@@ -1,4 +1,4 @@
-package com.techchefs.designpattern;
+package com.techchefs.designpatter.builder;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

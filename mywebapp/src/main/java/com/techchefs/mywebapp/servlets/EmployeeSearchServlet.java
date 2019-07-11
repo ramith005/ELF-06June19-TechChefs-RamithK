@@ -1,0 +1,66 @@
+package com.techchefs.mywebapp.servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.techchefs.mywebapp.beans.EmployeeInfoBean;
+import com.techchefs.mywebapp.dao.EmployeeDAO;
+import com.techchefs.mywebapp.dao.EmployeeDAOFactory;
+
+@WebServlet("/search")
+public class EmployeeSearchServlet extends HttpServlet{
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String idValue = req.getParameter("id");
+		
+		//Interact with DB and get the Employee Info
+		EmployeeDAO dao = EmployeeDAOFactory.getInstance();
+		EmployeeInfoBean bean = dao.getEmployeeInfo(idValue);
+		
+		//Send the Response to the Browser
+		PrintWriter out = resp.getWriter();
+		
+		if(bean==null) {
+			out.print("<HTML>");
+			out.print("<BODY>");
+			out.print("<H1><span style=\"color:red\">Employee Not Found</span></H1>");
+			out.print("</BODY>");
+			out.print("</HTML>");
+		} else {
+			out.print("<HTML>");
+			out.print("<BODY>");
+			out.print("<H1><span style=\"color:Green\">Employee Found</span></H1>");
+			out.print("******** Employee info *****");
+			out.print("<br>");
+			out.print("ID : "+bean.getId());
+			out.print("<br>");
+			out.print("AGE :"+bean.getAge());
+			out.print("<br>");
+			out.print("GENDER :"+bean.getGender());
+			out.print("<br>");
+			out.print("SALARY :"+bean.getSalary());
+			out.print("<br>");
+			out.print("PHONE :"+bean.getPhone());
+			out.print("<br>");
+			out.print("EMAIL 	:"+bean.getEmail());
+			out.print("<br>");
+			out.print("DESIGNATION :"+bean.getDesignation());
+			out.print("<br>");
+			out.print("DOB  :"+bean.getDob());
+			out.print("<br>");
+			out.print("DEPT_ID:"+bean.getDepartmentId());
+			out.print("<br>");
+			out.print("MNGR_ID :"+bean.getManagerId());
+			out.print("<br>");
+			out.print("</BODY>");
+			out.print("</HTML>");
+		}
+	}
+}
