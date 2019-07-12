@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    padding: 0;
+
+}
+nav {
+    width: 100%;
+    background: black;
+    
+}
+ul {
+    margin: 0;
+}
+li {
+    
+    display : inline;
+}
+ul li a {
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    padding: 30px;
+    display: inline-block;
+
+}
+input{
+    width:250px;
+    height:40px;
+    border-radius: 15px;
+    margin: 40px;
+
+}
+input[type="text"]:hover{
+    width:250px;
+    height:40px;
+    border-radius: 15px;
+    margin: 40px;
+    background: lightblue;
+
+}
+
+input[type="button"]:hover {
+    color: red;
+    background: gray;
+
+}

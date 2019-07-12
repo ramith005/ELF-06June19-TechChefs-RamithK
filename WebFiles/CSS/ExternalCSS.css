@@ -1,0 +1,17 @@
+.heading {
+    color: blueviolet;
+    background: teal;
+}
+#bold {
+    color: darkblue;
+    background: crimson;
+}
+#strong{
+
+    padding: 50px;
+    color: darkgreen;
+}
+body {
+    background: wheat;
+    color: yellow;
+}
