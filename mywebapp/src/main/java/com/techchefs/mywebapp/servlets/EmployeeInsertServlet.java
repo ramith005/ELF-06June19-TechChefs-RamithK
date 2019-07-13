@@ -16,10 +16,21 @@ import com.techchefs.mywebapp.beans.EmployeeInfoBean;
 import com.techchefs.mywebapp.dao.EmployeeDAO;
 import com.techchefs.mywebapp.dao.EmployeeDAOFactory;
 
+import lombok.extern.java.Log;
+
 @WebServlet("/insert")
+@Log
 public class EmployeeInsertServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String httpMethod = req.getMethod();
+		String protocol = req.getProtocol();
+		String requestUrl = req.getRequestURI();
+		
+		log.info("HTTP Method "+httpMethod);
+		log.info("protocol "+protocol);
+		log.info("requestUrl"+requestUrl);
 		
 		//Fetch the Data from the Employee Form
 		String id = req.getParameter("id");

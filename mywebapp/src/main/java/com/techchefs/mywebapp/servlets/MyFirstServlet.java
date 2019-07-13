@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 public class MyFirstServlet extends HttpServlet {
 	
+	public MyFirstServlet() {
+		System.out.println("Inside the servlet consultor !!!!! ");
+	}
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
@@ -38,8 +42,8 @@ public class MyFirstServlet extends HttpServlet {
 		"</html>";
 		
 		//Send the Above HTML Response to the Browser
-		//resp.setContentType("html/text");
-		resp.setContentType("video/mp4");
+		resp.setContentType("text/html");
+		//resp.setContentType("video/mp4");
 		//resp.setHeader("Refresh", "1");
 		PrintWriter out = resp.getWriter();
 		out.print(htmlResponse);
