@@ -3,6 +3,8 @@ package com.techchefs.mywebapp.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +16,7 @@ import com.techchefs.mywebapp.dao.EmployeeDAO;
 import com.techchefs.mywebapp.dao.EmployeeDAOFactory;
 
 @WebServlet("/search")
+//@WebServlet("/search/employeeSearch")
 public class EmployeeSearchServlet extends HttpServlet{
 	
 	@Override
@@ -26,6 +29,12 @@ public class EmployeeSearchServlet extends HttpServlet{
 		
 		//Send the Response to the Browser
 		PrintWriter out = resp.getWriter();
+		
+		ServletContext ctx = getServletContext();
+		String MovieName = ctx.getInitParameter("movie");
+		
+		ServletConfig config = getServletConfig();
+		String actorName = config.getInitParameter("actor");
 		
 		if(bean==null) {
 			out.print("<HTML>");
@@ -58,6 +67,10 @@ public class EmployeeSearchServlet extends HttpServlet{
 			out.print("DEPT_ID:"+bean.getDepartmentId());
 			out.print("<br>");
 			out.print("MNGR_ID :"+bean.getManagerId());
+			out.print("<br>");
+			out.print("Movie :"+MovieName);
+			out.print("<br>");
+			out.print("Actor :"+actorName);
 			out.print("<br>");
 			out.print("</BODY>");
 			out.print("</HTML>");
