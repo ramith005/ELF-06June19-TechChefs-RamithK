@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+	<!-- <bean id="emp1" class="com.techchefs.spring.beans.EmployeeBean" scope="prototype" init-method="afterPropertiesSetTest" destroy-method="destroyTest">
+		<property name="name" value="Ramith"></property>
+		<property name="id" value="184"></property>
+	</bean> -->
+	
+	<!-- <bean id="employee1" class="com.techchefs.spring.beans.EmployeeBean" scope="prototype">
+		<property name="name" value="Ramith"></property>
+		<property name="id" value="184"></property>
+		<property name="departmentBean" ref="departmentBean"></property>
+	</bean> -->
+	
+	<!-- <bean id="employee1" class="com.techchefs.spring.beans.EmployeeBean" autowire="byType">
+		<property name="name" value="Ramith"></property>
+		<property name="id" value="184"></property>
+	</bean> -->
+	
+	<!-- <bean id="employee1" class="com.techchefs.spring.beans.EmployeeBean" autowire="byName">
+		<property name="name" value="Ramith"></property>
+		<property name="id" value="184"></property>
+	</bean>
+	
+	<bean id="departmentBean" class="com.techchefs.spring.beans.DepartmentBean">
+		<property name="deptId" value="1"></property>
+		<property name="deptName" value="IT dept"></property>
+	</bean> -->
+	
+	<bean id="employee1" class="com.techchefs.spring.beans.EmployeeBean" autowire="byType">
+		<property name="name" value="Ramith"></property>
+		<property name="id" value="184"></property>
+	</bean>
+	
+	<bean id="departmentBean1" class="com.techchefs.spring.beans.DepartmentBean" autowire-candidate="false">
+		<property name="deptId" value="1"></property>
+		<property name="deptName" value="IT dept"></property>
+	</bean>
+	
+	<bean id="departmentBean2" class="com.techchefs.spring.beans.DepartmentBean" primary="true">
+		<property name="deptId" value="2"></property>
+		<property name="deptName" value="HR dept"></property>
+	</bean>
+	
+	<bean id="departmentBean3" class="com.techchefs.spring.beans.DepartmentBean" autowire-candidate="false">
+		<property name="deptId" value="3"></property>
+		<property name="deptName" value="Recruitment"></property>
+	</bean>
+</beans>
