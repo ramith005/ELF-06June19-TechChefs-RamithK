@@ -75,5 +75,33 @@ public class EmployeeSearchServlet extends HttpServlet{
 			out.print("</BODY>");
 			out.print("</HTML>");
 		}
-	}
-}
+		
+		//Get the object from the Forward Servlet
+		//EmployeeInfoBean empInfo = (EmployeeInfoBean) req.getAttribute("info");
+		EmployeeInfoBean empInfo = (EmployeeInfoBean) ctx.getAttribute("info");
+		
+		if(empInfo==null) {
+			out.print("<HTML>");
+			out.print("<BODY>");
+			out.print("<H1><span style=\"color:red\">Employee Info Bean Object Not Found</span></H1>");
+			out.print("</BODY>");
+			out.print("</HTML>");
+		} else {
+			out.print("<HTML>");
+			out.print("<BODY>");
+			out.print("<H1><span style=\"color:Green\">Employee Info Bean Object Found</span></H1>");
+			out.print("******** Employee info *****");
+			out.print("<br>");
+			out.print("ID : "+empInfo.getId());
+			out.print("<br>");
+			out.print("Name :"+empInfo.getName());
+			out.print("<br>");
+			out.print("PHONE :"+empInfo.getPhone());
+			out.print("<br>");
+			out.print("EMAIL 	:"+empInfo.getEmail());
+			out.print("</BODY>");
+			out.print("</HTML>");
+		}
+		
+	} //End of doGet
+}// End of Class
