@@ -11,102 +11,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.techchefs.empmanagement.dao.EmployeeDAO;
-import com.techchefs.empmanagement.dao.EmployeeDAOFactory;
 import com.techchefs.empmanagement.dto.EmployeeInfoBean;
 
-@WebServlet("/login")
-public class EmployeeLoginServlet extends HttpServlet {
-
+@WebServlet("/profile")
+public class EmployeeProfileServlet extends HttpServlet {
+	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//Valid Credentials Create a session
+		HttpSession session = req.getSession(false);
 		
-		//Check cookies are disabled
-		if(req.getCookies()==null) {
-			req.getRequestDispatcher("cookiesdisabled.html").include(req, resp);
-			return;
-		}
-		
-		// Fetch the Data from the Employee Login Form
-		String idValue = req.getParameter("empid");
-		String passwordValue = req.getParameter("password");
-		boolean loginSuccess = false;
-
-		// Interact with DB and fetch the login info
-
-		EmployeeDAO dao = EmployeeDAOFactory.getInstance();
-		EmployeeInfoBean bean = dao.getEmployeeInfo(idValue);
-		
-		// Send the Response to the Browser
+		// Fetch the Data from the Employee session Object
+		EmployeeInfoBean bean = (EmployeeInfoBean) session.getAttribute("empbeansession");
 		PrintWriter out = resp.getWriter();
-		HttpSession session = null;
 		
-		if (passwordValue != null && bean != null && passwordValue.equals(bean.getPassword())) {
-			loginSuccess = true;
-			//Valid Credentials Create a session
-			boolean validSession;
-			session = req.getSession(true);
-			
-			session.setAttribute("empbeansession", bean);
-		}
-
-		if (loginSuccess ==false && session == null) {
-			/*out.print("<!DOCTYPE html>");
-			out.print("<html lang=\"en\">");
-			out.print("<head>");
-			out.print("<title>Employee Management Portal</title>");
-			out.print("<meta charset=\"utf-8\">");
-			out.print("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
-			out.print(
-					"<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">");
-			out.print("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>");
-			out.print(
-					"<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>");
-			out.print("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>");
-			out.print("<link rel=\"stylesheet\" href=\"./form.css\" >");
-			out.print("</head>");
-			out.print("<style>");
-			out.print("</style>");
-			out.print("<body>");
-			out.print("<br /><br />");
-			out.print("<div class=\"container boxshadow container-resize\">");
-			out.print("<h2>Employee Login</h2>");
-			out.print("<form action=\"./login\" method=\"post\">");
-			out.print("<div class=\"form-group\">");
-			out.print("<div style=\"color:Red\">Invalid Id or Password</div>");
-			out.print("<label for=\"email\">Employee Id:</label>");
-			out.print(
-					"<input type=\"text\" class=\"form-control\" id=\"empid\" placeholder=\"Enter Employee id\" name=\"empid\">");
-			out.print("<label for=\"password\">Password:</label>");
-			out.print(
-					"<input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Enter Password\" name=\"password\">");
-			out.print("</div>");
-			out.print("<button type=\"submit\" name=\"sbmt\"  class=\"btn btn-primary\" >Login</button>");
-			out.print("<br /><br />");
-			out.print("<a class=\"txt2\" href=\"emp_info.html\">");
-			out.print("Create Account");
-			out.print("</a>");
-			out.print("<br />");
-			out.print("<a class=\"txt2\" href=\"forgotpassword.html\">");
-			out.print("Forgot Password?");
-			out.print("</a>");
-			out.print("</form>");
-			out.print("</div>");
-			out.print("</body>");
-			out.print("</html>");*/
+		if(session == null && bean==null) {
 			RequestDispatcher dispatcher = null;
 			resp.setContentType("text/html");
 			
-			PrintWriter pout = resp.getWriter();
-			out.println("1111111111");
 			
-			out.print("<BR>");
 			dispatcher = req.getRequestDispatcher("login.html");
 			dispatcher.include(req, resp);
-			out.print("<BR>");
-
 		} else {
-			
 			out.print("<HTML>");
 			out.print("<BODY>");
 			out.println("						<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>                                                                           ");
@@ -135,11 +61,11 @@ public class EmployeeLoginServlet extends HttpServlet {
 			out.println("												</div>                                                                                                                                                 ");
 			out.println("											</div>                                                                                                                                                     ");
 			out.println("											<div class='col-md-1'>                                                                                                                                     ");
-			out.println("													<a href='./logout'>Logout</a>                                                                                                                  ");
+			out.println("													<a href='./login.html'>Logout</a>                                                                                                                  ");
 			out.println("											</div>                                                                                                                                                     ");
 			out.println("											<br/><br/>                                                                                                                                                 ");
 			out.println("											<div class='col-md-4'>                                                                                                                                     ");
-			out.println("													<a href='./profile'><img src='img_avatar.png' alt='Avatar' style='width:100px;'></a>                                                                                       ");
+			out.println("													<img src='img_avatar.png' alt='Avatar' style='width:100px;'>                                                                                       ");
 			out.println("												<!-- <div class='profile-img'>                                                                                                                         ");
 			out.println("													<div class='file btn btn-lg btn-primary'>                                                                                                          ");
 			out.println("														Change Photo                                                                                                                                   ");
@@ -313,6 +239,5 @@ public class EmployeeLoginServlet extends HttpServlet {
 			out.print("</BODY>");
 			out.print("</HTML>");
 		}
-
 	}
 }
