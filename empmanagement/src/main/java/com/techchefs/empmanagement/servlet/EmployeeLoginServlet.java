@@ -22,10 +22,10 @@ public class EmployeeLoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		//Check cookies are disabled
-		if(req.getCookies()==null) {
+		/*if(req.getCookies()==null) {
 			req.getRequestDispatcher("cookiesdisabled.html").include(req, resp);
 			return;
-		}
+		}*/
 		
 		// Fetch the Data from the Employee Login Form
 		String idValue = req.getParameter("empid");
@@ -98,12 +98,8 @@ public class EmployeeLoginServlet extends HttpServlet {
 			resp.setContentType("text/html");
 			
 			PrintWriter pout = resp.getWriter();
-			out.println("1111111111");
-			
-			out.print("<BR>");
-			dispatcher = req.getRequestDispatcher("login.html");
+			dispatcher = req.getRequestDispatcher("LoginFail.jsp?msg=Invalid Id or Password");
 			dispatcher.include(req, resp);
-			out.print("<BR>");
 
 		} else {
 			

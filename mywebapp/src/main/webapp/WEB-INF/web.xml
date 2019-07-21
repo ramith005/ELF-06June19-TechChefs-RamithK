@@ -17,6 +17,10 @@
   	</init-param>
   </servlet>
   <servlet>
+  	<servlet-name>MyJSP</servlet-name>
+  	<jsp-file>/MyFirstJSP.jsp</jsp-file>
+  </servlet>
+  <servlet>
   	<servlet-name>RedirectServlet</servlet-name>
   	<display-name>RedirectServlet</display-name>
   	<description></description>
@@ -29,5 +33,9 @@
   <servlet-mapping>
   	<servlet-name>RedirectServlet</servlet-name>
   	<url-pattern>/redirect</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MyJSP</servlet-name>
+  	<url-pattern>/currDateJSP</url-pattern>
   </servlet-mapping>
 </web-app>
