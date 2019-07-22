@@ -1,0 +1,50 @@
+/*
+@autor Ramith Koyambrath
+Style Sheet For the Calculator App
+*/
+body {
+    background-image: linear-gradient(to right,rgb(233, 18, 54) , rgb(25, 25, 80));
+  }
+  
+  .cal_btn {
+    cursor: pointer;
+  }
+
+  table {
+    margin: auto;
+    background-color: rgb(236, 12, 12);
+    width: 295px;
+    height: 325px;
+    text-align: center;
+    padding-right: 8px;
+  }
+  
+  
+  input {
+    position: relative;
+    left: 5px;
+    top: 5px;
+    border: 0;
+    color: #495069;
+    background-color: #fff;
+    border-radius: 4px;
+    width: 60px;
+    height: 50px;
+    margin: 5px;
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  #display {
+    width: 265px;
+    max-width: 270px;
+    font-size: 26px;
+    text-align: right;
+    background-color: #fff;
+    float: left;
+  }
+  
+  .operator {
+    background-color: #fff;
+    position: relative;
+  }
