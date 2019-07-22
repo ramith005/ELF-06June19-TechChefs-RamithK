@@ -5,11 +5,12 @@ Style Sheet For the Calculator App
 body {
     background-image: linear-gradient(to right,rgb(233, 18, 54) , rgb(25, 25, 80));
   }
-  
+  /* Style the calc button*/
   .cal_btn {
     cursor: pointer;
   }
 
+  /* Style the table to fit the calculator app */
   table {
     margin: auto;
     background-color: rgb(236, 12, 12);
@@ -19,7 +20,7 @@ body {
     padding-right: 8px;
   }
   
-  
+  /* Style the input field to fit the values */
   input {
     position: relative;
     left: 5px;
@@ -35,6 +36,7 @@ body {
     margin-bottom: 12px;
   }
 
+  /* Style the display element */
   #display {
     width: 265px;
     max-width: 270px;
@@ -44,6 +46,7 @@ body {
     float: left;
   }
   
+  /* Style the operator buttons in calc app */
   .operator {
     background-color: #fff;
     position: relative;
