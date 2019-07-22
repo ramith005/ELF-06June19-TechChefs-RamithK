@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/editor.css">
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row container-border">
+            <div class="col">
+                    <h3>Real Time HTML editor</h3>
+                    <textarea id="in" rows="20" cols="60" noresize="noresize">
+                        &lt;html&gt;
+                        &lt;title&gt;&lt;/title&gt;
+                        &lt;head&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                        
+                        &lt;/body&gt;
+                        &lt;/html&gt;
+                        
+                        </textarea><br>
+                    <button type="button" onclick="runHtml()" class="btn btn-primary">Run HTML</button>
+            </div>
+            <div class="col editor-border">
+                <h3>HTML Output here</h3>
+                <p id="output"></p>
+                <script>
+                    function runHtml() {
+                        document.getElementById("output").innerHTML = document.getElementById("in").inneHTML = document.getElementById("in").value;
+                    }
+
+                </script>
+            </div>
+        </div>
+    </div>
+    <script src="./js/bootstrap.min.js"></script>
+</body>
+
+</html>
