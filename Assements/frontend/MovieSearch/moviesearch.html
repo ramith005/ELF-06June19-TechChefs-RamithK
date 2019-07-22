@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movie Search</title>
+    <link rel="stylesheet" href="./moviesearch.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./movie.js" ></script>
+</head>
+<body>
+        <div class="container">
+                <h1>Search Movie</h1>
+                <aside>
+                  <form autocomplete='off'>
+                    <input id="search-field" type="text" name="movie-name" placeholder="Search Movie ..!">
+                    <input type="submit" onclick="searchMovie()" value="Find Movie">
+                  </form>
+                </aside>
+                <div class="content"></div>
+              </div>
+              
+              <script id="movie-template" type="text/x-handlebars-template">
+                <div class="movie-container">
+                  <img src="{{image}}">
+                  <div>
+                    <h2>{{title}}</h2>
+                    <p>{{overview}}</p>
+                    <a href="#" class="related-search-link" data-id="{{movieId}}">Search Related</a>
+                    <select class="movie-rating" data-id="{{movieId}}">
+                    <option>Rate</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="delete">Delete</option>
+                </select>
+                </div>
+                  <div class="close">X</div>
+                </div>
+              </script>
+</body>
+</html>
