@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>
-	Current date and Time is :
+	Current date and Time iss :
 	<%
 		String currentDateTime = new Date().toString();
 	%>
