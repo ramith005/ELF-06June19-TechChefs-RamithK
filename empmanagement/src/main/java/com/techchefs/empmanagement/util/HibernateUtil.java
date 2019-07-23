@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.techchefs.empmanagement.dto.EmployeeInfoBean;
+import com.techchefs.empmanagement.dto.EmployeeOtherInfoBean;
 
 
 public class HibernateUtil {
@@ -17,6 +18,7 @@ public class HibernateUtil {
 		return new Configuration()
 							.configure()
 							.addAnnotatedClass(EmployeeInfoBean.class)
+							.addAnnotatedClass(EmployeeOtherInfoBean.class)
 							.buildSessionFactory();
 		
 		/*cfg.configure("hibernate.cfg.xml");

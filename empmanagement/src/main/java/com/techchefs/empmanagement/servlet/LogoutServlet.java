@@ -26,8 +26,7 @@ public class LogoutServlet extends HttpServlet {
 			resp.setContentType("text/html");
 			
 			PrintWriter pout = resp.getWriter();
-			pout.println("<h1><span style='color:green'>Thanks For Visiting Our Site</span></h1>");
-			dispatcher = req.getRequestDispatcher("login.html");
+			dispatcher = req.getRequestDispatcher("LoginFail.jsp?logoutmsg=Thanks for visiting our site");
 			dispatcher.include(req, resp);
 		
 	}

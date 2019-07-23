@@ -33,7 +33,6 @@ public class EmployeeLoginServlet extends HttpServlet {
 		boolean loginSuccess = false;
 
 		// Interact with DB and fetch the login info
-
 		EmployeeDAO dao = EmployeeDAOFactory.getInstance();
 		EmployeeInfoBean bean = dao.getEmployeeInfo(idValue);
 		
@@ -102,7 +101,7 @@ public class EmployeeLoginServlet extends HttpServlet {
 			dispatcher.include(req, resp);
 
 		} else {
-			
+			/*
 			out.print("<HTML>");
 			out.print("<BODY>");
 			out.println("						<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>                                                                           ");
@@ -308,6 +307,13 @@ public class EmployeeLoginServlet extends HttpServlet {
 			out.println("								</div>                                                                                                                                                                 ");
 			out.print("</BODY>");
 			out.print("</HTML>");
+			*/
+			RequestDispatcher dispatcher = null;
+			resp.setContentType("text/html");
+			
+			PrintWriter pout = resp.getWriter();
+			dispatcher = req.getRequestDispatcher("home.jsp");
+			dispatcher.include(req, resp);
 		}
 
 	}

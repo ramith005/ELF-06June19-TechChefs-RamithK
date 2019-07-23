@@ -73,8 +73,7 @@ public class EmployeeDAOHibernateImpl2 implements EmployeeDAO {
 //	}
 	
 	public boolean createEmployee(EmployeeInfoBean bean) {
-		// TODO Auto-generated method stub
-		return false;
+		return saveOrUpdate(bean);
 	}
 
 	public boolean updateEmployee(EmployeeInfoBean bean) {
