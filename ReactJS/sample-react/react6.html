@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Test</title>
+    <!-- Load React API -->
+    <script src= "https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <!-- Load React DOM-->
+    <script src= "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <!-- Load Babel Compiler -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script type="text/babel">
+    class Container extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {show : true};
+        }
+
+        delHeader = () => {
+           this.setState({show : false});
+        }
+        
+        render(){
+            let myheader;
+            if(this.state.show){
+                myheader = <Child />
+            };
+            return (
+                    <div>
+                    {myheader}
+                    <button type="button" onClick={this.delHeader}>Delete Header</button>
+                    </div>
+                );
+        }
+    }
+
+    class Child extends React.Component {
+        componentWillUnmount(){
+            alert("The component named header is about to be unmounted")
+        }
+
+        render(){
+            return (
+                <h1>Hello World !!</h1>
+            );
+        }
+    }
+
+    ReactDOM.render(<Container />, document.getElementById("root"));
+    //ReactDOM.render(<Header  />, document.getElementById("root"));
+</script>
+</html>
