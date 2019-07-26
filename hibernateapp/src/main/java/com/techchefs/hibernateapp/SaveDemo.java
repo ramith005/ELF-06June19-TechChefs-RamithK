@@ -52,8 +52,8 @@ public class SaveDemo {
 		//empInf.set
 		
 		DepartmentInfoBean deptInf = new DepartmentInfoBean();
-		deptInf.setDeptId(5);
-		deptInf.setDeptName("QA");
+		deptInf.setDeptId(10);
+		deptInf.setDeptName("QA Test");
 		
 		Transaction transaction = session.beginTransaction();
 		

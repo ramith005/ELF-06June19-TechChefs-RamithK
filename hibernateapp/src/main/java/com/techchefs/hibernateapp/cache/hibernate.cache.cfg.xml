@@ -11,5 +11,12 @@
         <property name="hibernate.connection.pool_size">1</property>
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        
+	
+<!--         <mapping resource="book.hbm.xml" /> -->
+	<mapping class="com.techchefs.hibernateapp.dto.EmployeeTest" />
     </session-factory>
 </hibernate-configuration>
