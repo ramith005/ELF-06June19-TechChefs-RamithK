@@ -95,6 +95,7 @@ public class EmployeeDAOHibernateImpl2 implements EmployeeDAO {
 	public List<EmployeeInfoBean> getEmployeeListById(int id) {
 		Session session = HibernateUtil.openSession();
 		String hql = " from EmployeeInfoBean where str(id) like '"+id+"%'";
+		//String hql = " from EmployeeInfoBean where str(id) = '"+id+"'";
 		Query query = session.createQuery(hql);
 		List<EmployeeInfoBean> beans = query.list();
 		

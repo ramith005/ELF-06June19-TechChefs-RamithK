@@ -1,3 +1,4 @@
+<%@ page session="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../form.css" >
+  <style>
+	.boxshadow {
+	  	border: 1px solid;
+	  	padding: 10px;
+	  	box-shadow: 5px 10px #888888;
+	}
+	.container-resize {
+	  	border:1px solid grey; 
+	  	width:400px;
+	}
+  </style>
 </head>
 <style>
 </style>
@@ -23,7 +35,8 @@
   <!-- <form action="./formSubmit5" method="post"> -->
   <!-- <form action="./formSubmit6" method="post"> -->
   <!-- <form action="./formDataDisplayEL" method="post"> -->
-  <form action="./validate" method="post">
+  <form action="./login" method="post">
+   <span style="color:green;">${msg}</span>
     <div class="form-group">
       <label for="email">Employee Id:</label>
       <input type="number" class="form-control" id="userId" placeholder="Enter Employee id" name="userId">

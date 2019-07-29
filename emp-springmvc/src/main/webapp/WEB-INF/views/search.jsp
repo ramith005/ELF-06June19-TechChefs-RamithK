@@ -198,12 +198,12 @@ body {
 			<div class='col-md-4'></div>
 			<div class='col-md-7'>
 				<div class='wrap1'>
-					<form action='./validate3/search' method='get'>
+					<form action='./validate' method='get'>
 						<div class='col-md-12'>
 							<input type="number" class="form-control" id="empid" placeholder= "Search employee Id" name="empid" />
 								
-    							<!-- <input hidden type="text" name="url" values="search"> -->
-								<input type='submit' />
+    							<input hidden type="text" name="url" value="search">
+								<input type='submit' name='btn-submit' />
 						</div>
 					</form>
 				</div>
@@ -225,12 +225,12 @@ body {
 			</div>
 			<div class='col-md-6'>
 				<div class='profile-head'>
-					<h5>${userBean.id}</h5>
-					<h6>${userBean.designation}</h6>
+					<h5>Search Employee By id ${empid}</h5>
+					<h6></h6>
 					<ul class='nav nav-tabs' id='myTab' role='tablist'>
 						<li class='nav-item'><a class='nav-link active' id='home-tab'
 							data-toggle='tab' href='#home' role='tab' aria-controls='home'
-							aria-selected='true'>About</a></li>
+							aria-selected='true'>Employee Details</a></li>
 					</ul>
 				</div>
 			</div>
@@ -247,7 +247,7 @@ body {
 				</div>
 			</div>
 			<div class='col-md-8'>
-				<div class='tab-content profile-tab' id='myTabContent'>
+				<%-- <div class='tab-content profile-tab' id='myTabContent'>
 					<div class='tab-pane fade show active' id='home' role='tabpanel'
 						aria-labelledby='home-tab'>
 						<div class='row'>
@@ -381,7 +381,7 @@ body {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> --%>
 		</div>
 	</div>
 </BODY>
