@@ -2,15 +2,42 @@ package com.techchefs.hibernateapp.dto;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import lombok.Data;
 
 @Entity
 @Table(name="employee_info")
+@Data
 public class EmployeeInfoBean implements Serializable {
+	
+	@OneToOne(cascade = CascadeType.ALL,mappedBy = "infoBean")
+	private EmployeeOtherInfoBean employeeOtherInfoBean;
+	
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "addressInfoBean.infoBean")
+	private List<EmployeeAddressInfoBean> addressInfoBean;
+	
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "educationalInfoBean.infoBean")
+	private List<EmployeeEducationInfoBean> educationalInfoBeans;
+	
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "experienceInfoBean.infoBean")
+	private List<EmployeeExperienceInfoBean> experienceInfoBean;
+	
+	@ManyToMany(cascade = CascadeType.ALL,mappedBy = "infoBeans")
+	private List<TranningInfoBean> trainningInfoBean;
+	
 	@Id
 	@Column(name="id")
 	private int id;
@@ -33,91 +60,21 @@ public class EmployeeInfoBean implements Serializable {
 	@Column(name="designation")
 	private String designation;
 	@Column(name="dob")
-	private Date dob; 
-	@Column(name="dept_id")
-	private int deptId;	
-	@Column(name="mngr_id")
-	private int mngrId;
+	private Date dob;
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-	public double getSalary() {
-		return salary;
-	}
-	public void setSalary(double salary) {
-		this.salary = salary;
-	}
-	public long getPhone() {
-		return phone;
-	}
-	public void setPhone(long phone) {
-		this.phone = phone;
-	}
-	public Date getJoiningDate() {
-		return joiningDate;
-	}
-	public void setJoiningDate(Date joiningDate) {
-		this.joiningDate = joiningDate;
-	}
-	public long getAccountNumber() {
-		return accountNumber;
-	}
-	public void setAccountNumber(long accountNumber) {
-		this.accountNumber = accountNumber;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getDesignation() {
-		return designation;
-	}
-	public void setDesignation(String designation) {
-		this.designation = designation;
-	}
-	public Date getDob() {
-		return dob;
-	}
-	public void setDob(Date dob) {
-		this.dob = dob;
-	}
-	public int getDeptId() {
-		return deptId;
-	}
-	public void setDeptId(int deptId) {
-		this.deptId = deptId;
-	}
-	public int getMngrId() {
-		return mngrId;
-	}
-	public void setMngrId(int mngrId) {
-		this.mngrId = mngrId;
-	}
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="dept_id")
+	private DepartmentInfoBean departmentInfoBean;
+	//private int deptId;	
+	//@Column(name="mngr_id")
+	//private int mngrId;
+	@ManyToOne
+	@JoinColumn(name = "MNG_ID", referencedColumnName = "ID")
+	private EmployeeInfoBean mngrId;
 	
-	
-
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name="EMP_TRANNING",
+			   joinColumns = {@JoinColumn(name = "ID")},
+			   inverseJoinColumns = {@JoinColumn(name = "COURSE_ID")})
+	private List<TranningInfoBean> tranningInfoBeans;
 }

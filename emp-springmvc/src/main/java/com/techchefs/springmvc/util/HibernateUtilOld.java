@@ -9,10 +9,10 @@ import com.techchefs.emp.dto.EmployeeInfoBean;
 import com.techchefs.emp.dto.EmployeeOtherInfoBean;
 
 
-public class HibernateUtil {
+public class HibernateUtilOld {
 	private static SessionFactory sfactory;
     
-	private HibernateUtil() {}
+	private HibernateUtilOld() {}
 	
 	public static SessionFactory buildSessionFactory() {
 		return new Configuration()
