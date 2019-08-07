@@ -7,6 +7,6 @@
 <title>Employee Management Portal</title>
 </head>
 <body>
-	Welcome to Emp Management Spring Webapp.
+Welcome to Emp management Spring webapp.
 </body>
 </html>

@@ -7,10 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>
-<label>UserName:</label>${userId} <br>
-<label>Password :</label>${password}
-</h3>
-
+<label>UserId   : </label> ${bean.userId } <br>
+<label>Password : </label> ${bean.password } <br>
 </body>
 </html>

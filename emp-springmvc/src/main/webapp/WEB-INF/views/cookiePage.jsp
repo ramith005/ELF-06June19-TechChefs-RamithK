@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>springmvc</title>
 </head>
 <body>
-<h3>
-<label>UserName:</label>${userId} <br>
-<label>Password :</label>${password}
-</h3>
-
+${msg}
+<br /><br/>
+<a href="./createCookie"> click here</a> to create cookie
+<br /><br/>
+<a href="./readCookie"> click here</a> to see cookie value
 </body>
 </html>

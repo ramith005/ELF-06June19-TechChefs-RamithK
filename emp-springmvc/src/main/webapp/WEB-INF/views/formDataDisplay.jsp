@@ -1,17 +1,21 @@
+<%@page import="com.tyss.emp.dto.UserBean"%>
+<%
+UserBean bean=(UserBean)request.getAttribute("userBean");
+%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<% 
-int userId 		= (Integer) request.getAttribute("userId");
-String password = (String) request.getAttribute("password");
-%>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Form Data</title>
+<title>Display</title>
 </head>
 <body>
-USER ID = <%=userId%><BR/>
-pASSWORD = <%=password%>
+<h3>
+<label>UserName:</label><%=bean.getUserId()%> <br>
+<label>Password :</label><%=bean.getPassword() %> <br>
+</h3>
+
 </body>
 </html>

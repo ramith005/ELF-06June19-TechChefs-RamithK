@@ -1,19 +1,22 @@
-<%@page import="com.techchefs.emp.dto.UserBean" %>
+<%
+int userId=(int) request.getAttribute("userId");
+String password=(String) request.getAttribute("password");
+
+%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<% 
-UserBean userBean = (UserBean) request.getAttribute("userBean");
-int userId 		= userBean.getUserId();
-String password = userBean.getPassword();
-%>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Form Data</title>
+<title>Display</title>
 </head>
 <body>
-USER ID = <%=userId%><BR/>
-pASSWORD = <%=password%>
+<h3>
+<label>UserName:</label><%=userId %> <br>
+<label>Password :</label><%=password %>
+</h3>
+
 </body>
 </html>

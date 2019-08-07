@@ -7,10 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>
-<label>UserName:</label>${userId} <br>
-<label>Password :</label>${password}
-</h3>
+<a href="./forwardReq"> click here</a> to see forward example
+<br /><br/>
+<a href="./redirectReq"> click here</a> to see redirect example
+<br /><br/>
+<a href="./createCookie"> click here</a> to create cookie
 
 </body>
 </html>
