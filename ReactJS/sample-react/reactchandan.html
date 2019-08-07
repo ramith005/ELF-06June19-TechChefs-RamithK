@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Sample Program</title>
+    <!-- Load React API -->
+    <script src= "https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <!-- Load React DOM-->
+    <script src= "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <!-- Load Babel Compiler -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+</head>
+<body>
+    <div id="mydiv"></div>
+    <div id="mydivnew"></div>
+</body>
+<script type="text/babel">
+        //Class Component
+        class Hello extends React.Component {
+            constructor(props){
+                super(props);
+                console.log('test', props.text);
+                this.state = {
+                    display : props.text != undefined ? props.text : 'Good Morning',
+                    displaynew : props.helotext != undefined ? props.helotext : 'Good Morning'
+                };
+            }
+
+            render(){
+                return <h1> Hello World ! {this.state.displaynew}</h1>
+            }
+        }
+        
+        //Functional Component
+        function Hellotest(){
+                return <h1> Hello World !</h1>
+        }
+        
+        //Render using the React DOM with the Class Component
+        ReactDOM.render(<Hello helotext="Good Evening" />, document.getElementById("mydiv"));
+        //Render using the React DOM with the Functional Component
+        ReactDOM.render(<Hellotest />, document.getElementById("mydivnew"));
+</script>
+</html>
