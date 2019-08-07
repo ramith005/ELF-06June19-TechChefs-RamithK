@@ -228,3 +228,9 @@ b) React DOM
 c) Babel (For the JSX)
 d) Webpack ( Convers all the different js files to a single file)
 */
+/**
+ * Exporting React Components
+ * After the Component is written write at the bottom 
+ * export deafault <ComponentName> - > While importing import <anyName> from 'Path'
+ * export <ComponentName> - > While importing import {<ComponentName} from 'Path' ::: No 'default' given here while exporting
+ */
