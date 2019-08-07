@@ -51,6 +51,4 @@ public class EmployeeOtherInfoBean implements Serializable {
 	private String passportNum;
 	@Column(name="adhar")
 	private long adhar;
-	
-
 }

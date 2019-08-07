@@ -65,9 +65,7 @@ public class EmployeeInfoBean implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="dept_id")
 	private DepartmentInfoBean departmentInfoBean;
-	//private int deptId;	
-	//@Column(name="mngr_id")
-	//private int mngrId;
+	
 	@ManyToOne
 	@JoinColumn(name = "MNG_ID", referencedColumnName = "ID")
 	private EmployeeInfoBean mngrId;
