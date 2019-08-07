@@ -1,9 +1,9 @@
-package com.tyss.emp.dao;
+package com.techchefs.emp.dao;
 
 import java.util.List;
 
-import com.tyss.emp.dto.EmployeeInfoBean;
-import com.tyss.emp.dto.EmployeeOtherInfoBean;
+import com.techchefs.emp.dto.EmployeeInfoBean;
+import com.techchefs.emp.dto.EmployeeOtherInfoBean;
 
 public interface EmployeeDAO {
 	List<EmployeeInfoBean> getAllEmployeeInfo();

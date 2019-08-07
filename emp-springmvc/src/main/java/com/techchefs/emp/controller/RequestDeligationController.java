@@ -1,4 +1,4 @@
-package com.tyss.emp.controller;
+package com.techchefs.emp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

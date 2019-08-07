@@ -1,4 +1,4 @@
-package com.tyss.emp.dto;
+package com.techchefs.emp.dto;
 
 import lombok.Data;
 

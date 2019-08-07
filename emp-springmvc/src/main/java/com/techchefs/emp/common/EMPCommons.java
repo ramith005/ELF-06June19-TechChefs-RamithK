@@ -1,4 +1,4 @@
-package com.tyss.emp.common;
+package com.techchefs.emp.common;
 
 public interface EMPCommons {
 

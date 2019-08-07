@@ -1,4 +1,4 @@
-package com.tyss.emp.controller;
+package com.techchefs.emp.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.tyss.emp.dao.EmployeeDAO;
-import com.tyss.emp.dto.EmployeeInfoBean;
+import com.techchefs.emp.dao.EmployeeDAO;
+import com.techchefs.emp.dto.EmployeeInfoBean;
 
 @Controller
 @RequestMapping("/employee")

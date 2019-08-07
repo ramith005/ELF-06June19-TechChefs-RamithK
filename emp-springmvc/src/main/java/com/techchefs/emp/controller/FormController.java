@@ -1,4 +1,4 @@
-package com.tyss.emp.controller;
+package com.techchefs.emp.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.tyss.emp.dto.UserBean;
+import com.techchefs.emp.dto.UserBean;
 
 @Controller
 @RequestMapping("/forms")

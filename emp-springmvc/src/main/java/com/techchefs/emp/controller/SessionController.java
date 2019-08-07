@@ -1,11 +1,11 @@
-package com.tyss.emp.controller;
+package com.techchefs.emp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.tyss.emp.dto.UserBean;
+import com.techchefs.emp.dto.UserBean;
 
 @Controller
 @RequestMapping("/session")

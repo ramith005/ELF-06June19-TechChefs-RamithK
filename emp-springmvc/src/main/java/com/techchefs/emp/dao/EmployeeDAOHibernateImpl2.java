@@ -1,4 +1,4 @@
-package com.tyss.emp.dao;
+package com.techchefs.emp.dao;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.tyss.emp.dto.EmployeeInfoBean;
-import com.tyss.emp.dto.EmployeeOtherInfoBean;
-import com.tyss.emp.util.HibernateUtil;
+import com.techchefs.emp.dto.EmployeeInfoBean;
+import com.techchefs.emp.dto.EmployeeOtherInfoBean;
+import com.techchefs.emp.util.HibernateUtil;
 
 import lombok.extern.java.Log;
 

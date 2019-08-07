@@ -22,6 +22,8 @@
 <title>Empother</title>
 </head>
 <body style="background: white">
+
+<form action="insdata" method="post">
 	<div class="accordion" id="accordionExample">
 		<div class="card">
 			<div class="card-header" id="headingOne">
@@ -38,14 +40,13 @@
 					<legend class="h3" style="text-align: center;">Employee
 						Information</legend>
 					<br>
-					<form action="insdata" method="post">
 
 						<div class="container-fluid">
 
 							<div class="row">
 								<div class="col-md-4 col-md-offset-2">
 									<label for="id">ID</label> <input type="text" name="id"
-										class="form-control" id="id" placeholder="ID">
+										class="form-control" placeholder="ID">
 								</div>
 								<div class="col-md-4">
 									<label for="accountnumber">Account Number</label> <input
@@ -56,12 +57,12 @@
 							<br>
 							<div class="row">
 								<div class="col-md-4 col-md-offset-2">
-									<label for="name">Name</label> <input type="text" name="name"
-										class="form-control" id="name" placeholder="Name">
+									<label for="name">Name</label> <input type="text"
+										class="form-control" name="name" placeholder="Name">
 								</div>
 								<div class="col-md-4">
 									<label for="email">Email ID</label> <input type="text"
-										name="email" class="form-control" id="email"
+										class="form-control" name="email"
 										placeholder="Email ID">
 								</div>
 							</div>
@@ -69,11 +70,11 @@
 							<div class="row">
 								<div class="col-md-4 col-md-offset-2">
 									<label for="age">Age</label> <input type="number" name="age"
-										class="form-control" id="age" placeholder="Age">
+										class="form-control" placeholder="Age">
 								</div>
 								<div class="col-md-4">
 									<label for="designation">Designation</label> <input type="text"
-										name="designation" class="form-control" id="designation"
+										 class="form-control" name="designation"
 										placeholder="Designation">
 								</div>
 							</div>
@@ -90,7 +91,7 @@
 								</div>
 								<div class="col-md-4">
 									<label for="dob">Date of Birth</label> <input type="date"
-										name="dob" class="form-control" id="dob"
+										class="form-control" name="dob"
 										placeholder="dd-mm-yyyy">
 								</div>
 							</div>
@@ -98,13 +99,13 @@
 							<div class="row">
 								<div class="col-md-4 col-md-offset-2">
 									<label for="salary">Salary</label> <input type="number"
-										name="salary" class="form-control" id="salary"
+										class="form-control" name="salary"
 										placeholder="Salary">
 								</div>
 								<div class="col-md-4">
 									<label for="departmentid">Department id</label> <input
-										type="number" name="departmentId" class="form-control"
-										id="departmentid" placeholder="department id">
+										type="number" class="form-control"
+										name="departmentId" placeholder="department id">
 								</div>
 							</div>
 							<br>
@@ -114,8 +115,8 @@
 										<label for="phonenumber">Phone Number</label>
 									</div>
 									<div>
-										<input type="number" name="phone" class="form-control"
-											id="phone" placeholder="phone number">
+										<input type="number" class="form-control"
+											name="phone" placeholder="phone number">
 									</div>
 								</div>
 								<div class="col-md-4">
@@ -124,7 +125,7 @@
 									</div>
 									<div>
 										<input type="number" name="managerId" class="form-control"
-											id="managerId" placeholder="manager id">
+											placeholder="manager id">
 									</div>
 								</div>
 							</div>
@@ -135,8 +136,7 @@
 										<label for="password">Password</label>
 									</div>
 									<div>
-										<input type="text" name="password" class="form-control"
-											id="password" placeholder="Enter Password">
+										<input type="password" name="password" class="form-control" placeholder="Enter Password">
 									</div>
 								</div>
 								<div class="col-md-4">
@@ -144,23 +144,8 @@
 										<label for="password">Confirm Password</label>
 									</div>
 									<div>
-										<input type="text" class="form-control" id="password"
+										<input type="text" class="form-control" name="confirmpassword"
 											placeholder="confirm password">
-									</div>
-								</div>
-							</div>
-							<br>
-
-
-
-							<div class="row">
-								<div class="col-md-4 col-md-offset-2">
-									<div>
-										<label for="joining">Joining date</label>
-									</div>
-									<div>
-										<input type="date" name="joiningDate" class="form-control"
-											id="joining" placeholder="Enter joining date">
 									</div>
 								</div>
 							</div>
@@ -196,7 +181,7 @@
 									</div>
 									<div>
 										<input type="text" class="form-control" id="id"
-											name="empOtherinfo.id" placeholder="Enter ID">
+											name="employeeOtherInfoBean.id" placeholder="Enter ID" disabled>
 									</div>
 								</div>
 								<div class="col-sm-4">
@@ -206,7 +191,7 @@
 									</div>
 									<div>
 										<input type="number" class="form-control"
-											name="empOtherinfo.emergencyContactNumber" id="ecn"
+											name="employeeOtherInfoBean.emergencyContactNumber"
 											placeholder="Enter Emergency Contact Number">
 									</div>
 								</div>
@@ -216,8 +201,8 @@
 										<label for="id">Mother Name</label>
 									</div>
 									<div>
-										<input type="text" class="form-control" id="mothername"
-											name="empOtherinfo.motherName"
+										<input type="text" class="form-control" 
+											name="employeeOtherInfoBean.motherName"
 											placeholder="Enter Mother Name">
 									</div>
 								</div>
@@ -228,7 +213,7 @@
 									<label for="id">Pan Number</label>
 									<div>
 										<input type="text" class="form-control" id="pan"
-											name="empOtherinfo.pan" placeholder="Enter Pan Number">
+											name="employeeOtherInfoBean.pan" placeholder="Enter Pan Number">
 									</div>
 								</div>
 								<div class="col-sm-4">
@@ -237,7 +222,7 @@
 									</div>
 									<div>
 										<input type="text" class="form-control" id="ecna"
-											name="emergencyContactPerson"
+											name="employeeOtherInfoBean.emergencyContactPerson"
 											placeholder="Enter Emergency Contact name">
 									</div>
 								</div>
@@ -247,7 +232,7 @@
 									</div>
 									<div>
 										<input type="text" class="form-control" id="spouse"
-											name="spouseName" placeholder="Enter spouse Name">
+											name="employeeOtherInfoBean.spouseName" placeholder="Enter spouse Name">
 									</div>
 								</div>
 							</div>
@@ -258,7 +243,7 @@
 										<label for="marital">Marital Status</label>
 									</div>
 									<div>
-										<select id="maritalstatus" name="isMarried"
+										<select id="maritalstatus" name="employeeOtherInfoBean.isMarried"
 											class="form-control">
 
 											<option value="1">Married</option>
@@ -272,7 +257,7 @@
 										<label for="id">Nationality</label>
 									</div>
 									<div>
-										<input type="text" name="nationality" class="form-control"
+										<input type="text" name="employeeOtherInfoBean.nationality" class="form-control"
 											id="Nationality" placeholder="Enter Nationality">
 									</div>
 								</div>
@@ -281,7 +266,7 @@
 										<label for="id">Passport Number</label>
 									</div>
 									<div>
-										<input type="text" name="passport" class="form-control"
+										<input type="text" name="employeeOtherInfoBean.passport" class="form-control"
 											id="passport" placeholder="Enter Passport">
 									</div>
 								</div>
@@ -293,7 +278,7 @@
 										<label for="bloodgroup">Blood Group</label>
 									</div>
 									<div>
-										<input type="text" name="bloodGroup" class="form-control"
+										<input type="text" name="employeeOtherInfoBean.bloodGroup" class="form-control"
 											id="bloodgroup" placeholder="Enter Blood Group">
 									</div>
 								</div>
@@ -302,7 +287,7 @@
 										<label for="Religion">ID</label>
 									</div>
 									<div>
-										<select id="Religion" name="religion" class="form-control">
+										<select id="Religion" name="employeeOtherInfoBean.religion" class="form-control">
 											<option value="null">--select one--</option>
 											<option value="hindu">Hindu</option>
 											<option value="muslim">Muslim</option>
@@ -316,7 +301,7 @@
 										<label for="adhar">Aadhar Number</label>
 									</div>
 									<div>
-										<input type="text" name="adhar" class="form-control"
+										<input type="text" name="employeeOtherInfoBean.adhar" class="form-control"
 											id="adhar" placeholder="Enter Aadhar Number">
 									</div>
 								</div>
@@ -328,7 +313,7 @@
 										<label for="physicallychallenged">Phyically challenged</label>
 									</div>
 									<div>
-										<select id="physicallychallenged" name="ischallenged"
+										<select id="physicallychallenged" name="employeeOtherInfoBean.ischallenged"
 											class="form-control">
 											<option value="null">---select one---</option>
 											<option value="1">Yes</option>
@@ -342,11 +327,11 @@
 										<label for="fathername">Father Name</label>
 									</div>
 									<div>
-										<input type="text" name="fatherName" class="form-control"
+										<input type="text" name="employeeOtherInfoBean.fatherName" class="form-control"
 											id="fathername" placeholder="Enter Father Name">
 									</div>
 								</div>
-								<div class="col-sm-4">
+								<!-- <div class="col-sm-4">
 									<div>
 										<label></label>
 									</div>
@@ -357,10 +342,9 @@
 										<button type="submit" id="submit" name="submit"
 											class="btn btn-info" aria-label="submit">Register</button>
 									</div>
-								</div>
+								</div> -->
 							</div>
 						</div>
-						</form>
 					</div>
 				</div>
 			</div>
@@ -385,19 +369,19 @@
 
 						<div class="container-fluid">
 							<div class="row">
-								<div class="col-md-4 col-md-offset-2">
-									<label for="id">ID</label> <input type="text"
-										class="form-control" id="id" placeholder="Enter ID">
+								<div class="col-md-4">
+									<label for="State">State</label> <input type="text"
+										class="form-control" id="State" placeholder="Enter State">
 								</div>
 								<div class="col-md-4">
-									<label for="city">City</label> <input type="text"
-										class="form-control" id="city" placeholder="enter City">
+									<label for="city">City</label> <input type="text" 
+										class="form-control" name="addressInfoBeans[0].city" placeholder="enter City">
 								</div>
 							</div>
 							<br>
-							<div class="row">
+							<!-- <div class="row">
 								<div class="col-md-4 col-md-offset-2">
-									<label for="Gender">Gender</label> <select id="Gender"
+									<label for="Gender">Gender</label> <select name="Gender"
 										class="form-control">
 										<option selected>--select one--</option>
 										<option value="male">male</option>
@@ -410,7 +394,7 @@
 										class="form-control" id="State" placeholder="Enter State">
 								</div>
 							</div>
-							<br>
+							<br> -->
 							<div class="row">
 								<div class="col-md-4 col-md-offset-2">
 									<label for="addr1">Address1</label> <input type="text"
@@ -444,7 +428,7 @@
 											placeholder="Enter landmark">
 									</div>
 								</div>
-								<div class="col-md-4">
+								<!-- <div class="col-md-4">
 									<div>
 										<div>
 											<label for="btn"> </label>
@@ -457,9 +441,8 @@
 												class="btn btn-info" aria-label="submit">Submit</button>
 										</div>
 									</div>
-								</div>
+								</div> -->
 							</div>
-							</form>
 						</div>
 					</div>
 				</div>
@@ -484,9 +467,9 @@
 
 							<div class="container-fluid">
 								<div class="row">
-									<div class="col-md-4 col-md-offset-2">
-										<label for="id">ID</label> <input type="text"
-											class="form-control" id="id" placeholder="Enter ID">
+									<div class="col-md-4">
+									<label for="State">State</label> <input type="text"
+										class="form-control" id="State" placeholder="Enter State">
 									</div>
 									<div class="col-md-4">
 										<label for="city">City</label> <input type="text"
@@ -494,7 +477,7 @@
 									</div>
 								</div>
 								<br>
-								<div class="row">
+								<!-- <div class="row">
 									<div class="col-md-4 col-md-offset-2">
 										<label for="Gender">Gender</label> <select id="Gender"
 											class="form-control">
@@ -508,7 +491,7 @@
 										<label for="State">State</label> <input type="text"
 											class="form-control" id="State" placeholder="Enter State">
 									</div>
-								</div>
+								</div> -->
 								<br>
 								<div class="row">
 									<div class="col-md-4 col-md-offset-2">
@@ -558,7 +541,6 @@
 										</div>
 									</div>
 								</div>
-								</form>
 							</div>
 						</div>
 					</div>
@@ -580,7 +562,52 @@
 								<legend class="h3" style="text-align: center;">Employee
 									Educational Information1</legend>
 								<br>
-								
+								<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-4 col-md-offset-2">
+										<label for="id">Educational Type</label> <input type="text"
+											class="form-control" id="education_type1" placeholder="Enter Educational Type">
+									</div>
+									<div class="col-md-4">
+										<label for="city">Degree Type</label> <input type="text"
+											class="form-control" id="degree_type1" placeholder="Enter Degree Type">
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-4">
+										<label for="State">Branch</label> <input type="text"
+											class="form-control" id="branch1" placeholder="Enter Branch">
+									</div>
+									<div class="col-md-4">
+										<label for="State">College Name</label> <input type="text"
+											class="form-control" id="college1" placeholder="Enter College Name">
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-4">
+										<label for="State">University</label> <input type="text"
+											class="form-control" id="university1" placeholder="Enter University">
+									</div>
+									<div class="col-md-4">
+										<label for="State">Passout Year</label> <input type="text"
+											class="form-control" id="passoutyear1" placeholder="Enter Passout Year">
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-4">
+										<label for="State">Percentage</label> <input type="text"
+											class="form-control" id="percentage1" placeholder="Enter Percentage">
+									</div>
+									<div class="col-md-4">
+										<label for="State">Location</label> <input type="text"
+											class="form-control" id="location1" placeholder="Enter Location">
+									</div>
+								</div>
+								<br>
+							</div>
 							</div>
 						</div>
 					</div>
@@ -601,6 +628,53 @@
 								<legend class="h3" style="text-align: center;">Employee
 									Educational Information2</legend>
 								<br>
+								
+								<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-4 col-md-offset-2">
+										<label for="id">Educational Type</label> <input type="text"
+											class="form-control" id="education_type1" placeholder="Enter Educational Type">
+									</div>
+									<div class="col-md-4">
+										<label for="city">Degree Type</label> <input type="text"
+											class="form-control" id="degree_type1" placeholder="Enter Degree Type">
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-4">
+										<label for="State">Branch</label> <input type="text"
+											class="form-control" id="branch1" placeholder="Enter Branch">
+									</div>
+									<div class="col-md-4">
+										<label for="State">College Name</label> <input type="text"
+											class="form-control" id="college1" placeholder="Enter College Name">
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-4">
+										<label for="State">University</label> <input type="text"
+											class="form-control" id="university1" placeholder="Enter University">
+									</div>
+									<div class="col-md-4">
+										<label for="State">Passout Year</label> <input type="text"
+											class="form-control" id="passoutyear1" placeholder="Enter Passout Year">
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-4">
+										<label for="State">Percentage</label> <input type="text"
+											class="form-control" id="percentage1" placeholder="Enter Percentage">
+									</div>
+									<div class="col-md-4">
+										<label for="State">Location</label> <input type="text"
+											class="form-control" id="location1" placeholder="Enter Location">
+									</div>
+								</div>
+								<br>
+							</div>
 							</div>
 						</div>
 					</div>
@@ -621,10 +695,30 @@
 								<legend class="h3" style="text-align: center;">Employee
 									Experience Information1</legend>
 								<br>
-
-
-
-								</form>
+								<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-4 col-md-offset-2">
+										<label for="id">Company Name</label> <input type="text"
+											class="form-control" id="company_name" placeholder="Enter Company name">
+									</div>
+									<div class="col-md-4">
+										<label for="city">Designation</label> <input type="text"
+											class="form-control" id="city" placeholder="Enter Designation">
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-4">
+										<label for="State">Joining Date</label> <input type="date"
+											class="form-control" id="Joining date" placeholder="Enter Joining Date">
+									</div>
+									<div class="col-md-4">
+										<label for="State">Releiving Date</label> <input type="date"
+											class="form-control" id="releaving date" placeholder="Enter Releiving Date">
+									</div>
+								</div>
+								<br>
+							</div>
 							</div>
 						</div>
 					</div>
@@ -645,10 +739,30 @@
 								<legend class="h3" style="text-align: center;">Employee
 									Experience Information2</legend>
 								<br>
-
-
-
-								</form>
+								<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-4 col-md-offset-2">
+										<label for="id">Company Name</label> <input type="text"
+											class="form-control" id="company_name" placeholder="Enter Company name">
+									</div>
+									<div class="col-md-4">
+										<label for="city">Designation</label> <input type="text"
+											class="form-control" id="city" placeholder="Enter Designation">
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-4">
+										<label for="State">Joining Date</label> <input type="date"
+											class="form-control" id="Joining date" placeholder="Enter Joining Date">
+									</div>
+									<div class="col-md-4">
+										<label for="State">Releiving Date</label> <input type="date"
+											class="form-control" id="releaving date" placeholder="Enter Releiving Date">
+									</div>
+								</div>
+								<br>
+							</div>
 							</div>
 						</div>
 					</div>
@@ -669,12 +783,33 @@
 								<legend class="h3" style="text-align: center;">Employee
 									Experience Information3</legend>
 								<br>
-
-
-
-								</form>
+								<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-4 col-md-offset-2">
+										<label for="id">Company Name</label> <input type="text"
+											class="form-control" id="company_name" placeholder="Enter Company name">
+									</div>
+									<div class="col-md-4">
+										<label for="city">Designation</label> <input type="text"
+											class="form-control" id="city" placeholder="Enter Designation">
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-4">
+										<label for="State">Joining Date</label> <input type="date"
+											class="form-control" id="Joining date" placeholder="Enter Joining Date">
+									</div>
+									<div class="col-md-4">
+										<label for="State">Releiving Date</label> <input type="date"
+											class="form-control" id="releaving date" placeholder="Enter Releiving Date">
+									</div>
+								</div>
+								<br>
+							</div>
 							</div>
 						</div>
 					</div>
+		</form>
 </body>
 </html>

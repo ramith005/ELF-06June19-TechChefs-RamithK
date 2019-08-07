@@ -1,4 +1,6 @@
-package com.tyss.emp.controller;
+package com.techchefs.emp.controller;
+
+import static com.techchefs.emp.common.EMPCommons.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import static com.tyss.emp.common.EMPCommons.*;
 
 @Controller
 @RequestMapping("/validator")

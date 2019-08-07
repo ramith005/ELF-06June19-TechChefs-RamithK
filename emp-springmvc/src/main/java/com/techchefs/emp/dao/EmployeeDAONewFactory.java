@@ -1,4 +1,4 @@
-package com.tyss.emp.dao;
+package com.techchefs.emp.dao;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;

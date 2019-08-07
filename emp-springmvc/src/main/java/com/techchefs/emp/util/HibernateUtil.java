@@ -1,4 +1,4 @@
-package com.tyss.emp.util;
+package com.techchefs.emp.util;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

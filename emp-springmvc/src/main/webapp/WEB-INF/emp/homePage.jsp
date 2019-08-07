@@ -1,5 +1,5 @@
-<%@page import="com.tyss.emp.dao.*"%>
-<%@page import="com.tyss.emp.dto.*"%>
+<%@page import="com.techchefs.emp.dao.*"%>
+<%@page import="com.techchefs.emp.dto.*"%>
 <!DOCTYPE html>
 <html lang='en'>
 

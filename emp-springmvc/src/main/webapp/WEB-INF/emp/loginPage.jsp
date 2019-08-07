@@ -23,7 +23,7 @@ body, html {
 	width: 350px;
 	margin-top: auto;
 	margin-bottom: auto;
-	background: #f39c12;
+	background: #fff;
 	position: relative;
 	display: flex;
 	justify-content: center;

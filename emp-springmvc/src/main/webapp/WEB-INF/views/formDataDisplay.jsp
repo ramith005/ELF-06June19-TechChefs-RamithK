@@ -1,4 +1,4 @@
-<%@page import="com.tyss.emp.dto.UserBean"%>
+<%@page import="com.techchefs.emp.dto.UserBean"%>
 <%
 UserBean bean=(UserBean)request.getAttribute("userBean");
 %>
