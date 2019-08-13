@@ -10,12 +10,15 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 @SuppressWarnings("serial")
 @Embeddable
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class EmployeeAddressPKBean implements Serializable{
-	@XmlTransient
+	//@XmlTransient
+	@JsonIgnore
 	@JoinColumn(name = "id")
 	@ManyToOne
 	private EmployeeInfoBean infoBean;

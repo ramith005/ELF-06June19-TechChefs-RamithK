@@ -15,11 +15,13 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Entity
 @Table(name = "training_info")
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class TrainingInfoBean implements Serializable {
 	@Id
 	@Column(name="course_id")
@@ -31,7 +33,8 @@ public class TrainingInfoBean implements Serializable {
 	@Column(name = "course_type")
 	private String courseType;
 	
-	@XmlTransient
+	//@XmlTransient
+	@JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "employee_traininginfo",
 				joinColumns = {@JoinColumn(name="course_id")},

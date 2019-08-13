@@ -13,14 +13,17 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 
 @Entity
 @Table(name = "employee_otherinfo")
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class EmployeeOtherInfoBean implements Serializable{
-	@XmlTransient
+	//@XmlTransient
+	@JsonIgnore
 	@Id
 	@OneToOne
 	@JoinColumn(name = "id" )

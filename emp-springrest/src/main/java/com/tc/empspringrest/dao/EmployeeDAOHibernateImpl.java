@@ -15,38 +15,36 @@ import lombok.extern.java.Log;
 
 @Log
 public final class EmployeeDAOHibernateImpl implements EmployeeDao {
-	
+
 	@Autowired
 	SessionFactory sessionFactory;
-	
-	
+
 	public List<EmployeeInfoBean> getAllEmployeeInfo() {
 		List<EmployeeInfoBean> beans = null;
-		try (Session session = sessionFactory.openSession();) {
-			String hql = "from EmployeeInfoBean";
-			Query query = session.createQuery(hql);
-			beans = query.list();
-		}
+		Session session = sessionFactory.openSession();
+		String hql = "from EmployeeInfoBean";
+		Query query = session.createQuery(hql);
+		beans = query.list();
+
 		return beans;
 
 	}
-	
-	public List<EmployeeInfoBean> getAllEmployeeInfoWithRestrictions(String condition){
+
+	public List<EmployeeInfoBean> getAllEmployeeInfoWithRestrictions(String condition) {
 		try (Session session = sessionFactory.openSession();) {
-		String hql = "from EmployeeInfoBean where str(id) like :id";
-		Query query = session.createQuery(hql);
+			String hql = "from EmployeeInfoBean where str(id) like :id";
+			Query query = session.createQuery(hql);
 //		query.setParameter("name", condition+"%");
-		query.setParameter("id", condition+"%");
+			query.setParameter("id", condition + "%");
 //		Criteria criteria = session.createCriteria(EmployeeInfoBean.class).add(Restrictions.like("id", Integer.parseInt(condition)));
-		List<EmployeeInfoBean> beans = query.list();
-		return beans;
-		}
-		catch(Exception ex) {
+			List<EmployeeInfoBean> beans = query.list();
+			return beans;
+		} catch (Exception ex) {
 			ex.printStackTrace();
 			return null;
 		}
 	}
-	
+
 	public EmployeeInfoBean getEmployeeInfo(String id) {
 		try {
 			return getEmployeeInfo(Integer.parseInt(id));
@@ -58,7 +56,7 @@ public final class EmployeeDAOHibernateImpl implements EmployeeDao {
 	}
 
 	public EmployeeInfoBean getEmployeeInfo(int id) {
-		try (Session session = sessionFactory.openSession();) {
+		Session session = sessionFactory.openSession();
 
 			// 3. Open Session
 
@@ -69,11 +67,11 @@ public final class EmployeeDAOHibernateImpl implements EmployeeDao {
 			session.close();
 
 			return bean;
-		} catch (Exception e) {
+		/*} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
-		}
+		}*/
 	}
 
 	private boolean saveOrUpdate(EmployeeInfoBean bean) {
@@ -134,7 +132,7 @@ public final class EmployeeDAOHibernateImpl implements EmployeeDao {
 	@Override
 	public List<EmployeeInfoBean> getAllEmployeeInfoWithRestrictions(int condition) {
 		// TODO Auto-generated method stub
-		return getAllEmployeeInfoWithRestrictions(condition+"");
+		return getAllEmployeeInfoWithRestrictions(condition + "");
 	}
 
 //END of getEmployeeInfo(int) method
