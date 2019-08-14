@@ -14,6 +14,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
@@ -33,7 +34,8 @@ public class EmployeeOtherInfoBean implements Serializable{
 	@Column(name = "pan")
 	private String pan;
 	
-	@XmlElement(name = "is-married")
+	//@XmlElement(name = "is-married")
+	@JsonProperty(value = "is-married")
 	@Column(name = "ismarried")
 	private boolean isMarried;
 	

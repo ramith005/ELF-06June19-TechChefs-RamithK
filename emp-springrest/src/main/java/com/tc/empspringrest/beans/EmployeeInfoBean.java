@@ -29,6 +29,8 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 import com.fasterxml.jackson.annotation.ObjectIdGenerator;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+import lombok.Data;
+
 @SuppressWarnings("serial")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "id")
 //@XmlRootElement(name = "employee-info-bean")
@@ -36,185 +38,123 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 //@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Table(name = "employee_info")
+@Data
 public class EmployeeInfoBean implements Serializable {
-
-	public EmployeeOtherInfoBean getOtherInfo() {
-		return otherInfo;
-	}
-
-	public void setOtherInfo(EmployeeOtherInfoBean otherInfo) {
-		this.otherInfo = otherInfo;
-	}
-
-	public List<EmployeeAddressInfoBean> getAddressInfoBeans() {
-		return addressInfoBeans;
-	}
-
-	public void setAddressInfoBeans(List<EmployeeAddressInfoBean> addressInfoBeans) {
-		this.addressInfoBeans = addressInfoBeans;
-	}
-
-	public List<EmployeeExperienceInfoBean> getExperienceInfoBeans() {
-		return experienceInfoBeans;
-	}
-
-	public void setExperienceInfoBeans(List<EmployeeExperienceInfoBean> experienceInfoBeans) {
-		this.experienceInfoBeans = experienceInfoBeans;
-	}
-
-	public List<EmployeeEducationInfoBean> getEducationInfoBeans() {
-		return educationInfoBeans;
-	}
-
-	public void setEducationInfoBeans(List<EmployeeEducationInfoBean> educationInfoBeans) {
-		this.educationInfoBeans = educationInfoBeans;
-	}
-
-	public List<TrainingInfoBean> getTrainingInfoBeans() {
-		return trainingInfoBeans;
-	}
-
-	public void setTrainingInfoBeans(List<TrainingInfoBean> trainingInfoBeans) {
-		this.trainingInfoBeans = trainingInfoBeans;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Integer getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
-	public double getSalary() {
-		return salary;
-	}
-
-	public void setSalary(double salary) {
-		this.salary = salary;
-	}
-
-	public long getPhone() {
-		return phone;
-	}
-
-	public void setPhone(long phone) {
-		this.phone = phone;
-	}
-
-	public Date getJoiningDate() {
-		return joiningDate;
-	}
-
-	public void setJoiningDate(Date joiningDate) {
-		this.joiningDate = joiningDate;
-	}
-
-	public long getAccountNumber() {
-		return accountNumber;
-	}
-
-	public void setAccountNumber(long accountNumber) {
-		this.accountNumber = accountNumber;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getDesignation() {
-		return designation;
-	}
-
-	public void setDesignation(String designation) {
-		this.designation = designation;
-	}
-
-	public Date getDob() {
-		return dob;
-	}
-
-	public void setDob(Date dob) {
-		this.dob = dob;
-	}
-
-	public Integer getDepartmentId() {
-		return departmentId;
-	}
-
-	public void setDepartmentId(int departmentId) {
-		this.departmentId = departmentId;
-	}
-
-	public EmployeeInfoBean getMngrId() {
-		return mngrId;
-	}
-
-	public void setMngrId(EmployeeInfoBean mngrId) {
-		this.mngrId = mngrId;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	
+	/*
+	 * public EmployeeOtherInfoBean getOtherInfo() { return otherInfo; }
+	 * 
+	 * public void setOtherInfo(EmployeeOtherInfoBean otherInfo) { this.otherInfo =
+	 * otherInfo; }
+	 * 
+	 * public List<EmployeeAddressInfoBean> getAddressInfoBeans() { return
+	 * addressInfoBeans; }
+	 * 
+	 * public void setAddressInfoBeans(List<EmployeeAddressInfoBean>
+	 * addressInfoBeans) { this.addressInfoBeans = addressInfoBeans; }
+	 * 
+	 * public List<EmployeeExperienceInfoBean> getExperienceInfoBeans() { return
+	 * experienceInfoBeans; }
+	 * 
+	 * public void setExperienceInfoBeans(List<EmployeeExperienceInfoBean>
+	 * experienceInfoBeans) { this.experienceInfoBeans = experienceInfoBeans; }
+	 * 
+	 * public List<EmployeeEducationInfoBean> getEducationInfoBeans() { return
+	 * educationInfoBeans; }
+	 * 
+	 * public void setEducationInfoBeans(List<EmployeeEducationInfoBean>
+	 * educationInfoBeans) { this.educationInfoBeans = educationInfoBeans; }
+	 * 
+	 * public List<TrainingInfoBean> getTrainingInfoBeans() { return
+	 * trainingInfoBeans; }
+	 * 
+	 * public void setTrainingInfoBeans(List<TrainingInfoBean> trainingInfoBeans) {
+	 * this.trainingInfoBeans = trainingInfoBeans; }
+	 * 
+	 * public Integer getId() { return id; }
+	 * 
+	 * public void setId(int id) { this.id = id; }
+	 * 
+	 * public String getName() { return name; }
+	 * 
+	 * public void setName(String name) { this.name = name; }
+	 * 
+	 * public Integer getAge() { return age; }
+	 * 
+	 * public void setAge(int age) { this.age = age; }
+	 * 
+	 * public String getGender() { return gender; }
+	 * 
+	 * public void setGender(String gender) { this.gender = gender; }
+	 * 
+	 * public double getSalary() { return salary; }
+	 * 
+	 * public void setSalary(double salary) { this.salary = salary; }
+	 * 
+	 * public long getPhone() { return phone; }
+	 * 
+	 * public void setPhone(long phone) { this.phone = phone; }
+	 * 
+	 * public Date getJoiningDate() { return joiningDate; }
+	 * 
+	 * public void setJoiningDate(Date joiningDate) { this.joiningDate =
+	 * joiningDate; }
+	 * 
+	 * public long getAccountNumber() { return accountNumber; }
+	 * 
+	 * public void setAccountNumber(long accountNumber) { this.accountNumber =
+	 * accountNumber; }
+	 * 
+	 * public String getEmail() { return email; }
+	 * 
+	 * public void setEmail(String email) { this.email = email; }
+	 * 
+	 * public String getDesignation() { return designation; }
+	 * 
+	 * public void setDesignation(String designation) { this.designation =
+	 * designation; }
+	 * 
+	 * public Date getDob() { return dob; }
+	 * 
+	 * public void setDob(Date dob) { this.dob = dob; }
+	 * 
+	 * public Integer getDepartmentId() { return departmentId; }
+	 * 
+	 * public void setDepartmentId(int departmentId) { this.departmentId =
+	 * departmentId; }
+	 * 
+	 * public EmployeeInfoBean getMngrId() { return mngrId; }
+	 * 
+	 * public void setMngrId(EmployeeInfoBean mngrId) { this.mngrId = mngrId; }
+	 * 
+	 * public String getPassword() { return password; }
+	 * 
+	 * public void setPassword(String password) { this.password = password; }
+	 */
 	//@XmlElement(name = "other-info")
 	@JsonProperty(value = "other-info")
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "infoBean")
 	private EmployeeOtherInfoBean otherInfo;
 	
 	//@XmlElement(name = "address-info")
-	@JsonProperty(value = "other-info")
+	@JsonProperty(value = "address-info")
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "addressPKBean.infoBean", fetch = FetchType.EAGER)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<EmployeeAddressInfoBean> addressInfoBeans;
 	
 	//@XmlElement(name = "experience-info")
-	@JsonProperty(value = "other-info")
+	@JsonProperty(value = "experience-info")
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "experiencePKBean.infoBean")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<EmployeeExperienceInfoBean> experienceInfoBeans;
 	
 	//@XmlElement(name = "education-info")
-	@JsonProperty(value = "other-info")
+	@JsonProperty(value = "education-info")
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "educationPKBean.infoBean")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<EmployeeEducationInfoBean> educationInfoBeans;
 	
 	//@XmlElement(name = "training-info")
-	@JsonProperty(value = "other-info")
+	@JsonProperty(value = "training-info")
 	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "infoBeans")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<TrainingInfoBean> trainingInfoBeans;
@@ -248,7 +188,7 @@ public class EmployeeInfoBean implements Serializable {
 	@Column(name = "dept_id")
 	private Integer departmentId;
 
-	@ManyToOne(cascade = CascadeType.ALL) // , fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.PERSIST  , fetch = FetchType.EAGER)
 	@JoinColumn(name = "mngr_id", referencedColumnName = "id")
 	// @LazyCollection(LazyCollectionOption.FALSE)
 	private EmployeeInfoBean mngrId;

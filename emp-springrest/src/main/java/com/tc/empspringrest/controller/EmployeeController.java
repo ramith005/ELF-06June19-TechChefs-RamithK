@@ -4,7 +4,7 @@ import static com.tc.empspringrest.common.EMPConstants.VIEW_HOMEPAGE;
 import static com.tc.empspringrest.common.EMPConstants.DB_INTERACTION_TYPE;
 import static com.tc.empspringrest.common.EMPConstants.PROPERTY_FILENAME;
 
-import java.awt.PageAttributes.MediaType;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
@@ -24,18 +25,21 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.tc.empspringrest.beans.EmployeeAddressInfoBean;
 import com.tc.empspringrest.beans.EmployeeEducationInfoBean;
 import com.tc.empspringrest.beans.EmployeeExperienceInfoBean;
 import com.tc.empspringrest.beans.EmployeeInfoBean;
 import com.tc.empspringrest.beans.EmployeeOtherInfoBean;
+import com.tc.empspringrest.beans.EmployeeResponse;
 import com.tc.empspringrest.dao.EmployeeDao;
 
-@Controller
+@RestController
 @RequestMapping("/employee")
 @PropertySource(PROPERTY_FILENAME)
 public class EmployeeController {
@@ -50,24 +54,41 @@ public class EmployeeController {
 		binder.registerCustomEditor(Date.class, editor);
 	}
 
-	@DeleteMapping(path = "/removeEmployee")
-	public @ResponseBody boolean deleteEmployee(@PathVariable("id")int id) {
-		return dao.deleteEmployeeInfo(id);
+	@DeleteMapping(path = "/removeEmployee",
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	public @ResponseBody EmployeeResponse deleteEmployee(@RequestParam("id")int id) {
+		//return dao.deleteEmployeeInfo(id);
+		EmployeeResponse response = new EmployeeResponse();
+		if(dao.deleteEmployeeInfo(id)) {
+			response.setStatusCode(201);
+			response.setMessage("Successful");
+			response.setDescription("Employee data deleted successfully");
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failure");
+			response.setDescription("Employee data not deleted successfully");
+		}
+		return response;
 	}
 
-	@GetMapping(path = "/getEmployee")
+	@GetMapping(path = "/getEmployee",
+			produces = {MediaType.APPLICATION_JSON_VALUE})
 	public @ResponseBody EmployeeInfoBean getEmployee(@RequestParam("empId") int id) {
 		return dao.getEmployeeInfo(id);
 	}
 
-	@GetMapping(path = "/getAllEmployee")
+	@GetMapping(path = "/getAllEmployee",
+			produces = {MediaType.APPLICATION_JSON_VALUE})
 	public @ResponseBody List<EmployeeInfoBean> getAllEmployee() {
 		return dao.getAllEmployeeInfo();
 	}
 
-	@PostMapping(path = "/createEmployee")
-	public @ResponseBody boolean addEmployee(EmployeeInfoBean bean, int managerId, ModelMap map) {
-
+	@PostMapping(value = "/createEmployee",
+			produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public EmployeeResponse addEmployee(@RequestBody EmployeeInfoBean bean, ModelMap map) {
+		EmployeeResponse response = new EmployeeResponse();
+		
+		
 		List<EmployeeEducationInfoBean> eduBeans = bean.getEducationInfoBeans();
 		for (EmployeeEducationInfoBean employeeEducationInfoBean : eduBeans) {
 			employeeEducationInfoBean.getEducationPKBean().setInfoBean(bean);
@@ -84,7 +105,8 @@ public class EmployeeController {
 		EmployeeOtherInfoBean otherInfo = bean.getOtherInfo();
 		otherInfo.setInfoBean(bean);
 
-		bean.setMngrId(dao.getEmployeeInfo(managerId));
+		//bean.setMngrId(dao.getEmployeeInfo(managerId));
+		/*
 		boolean result = dao.createEmployeeInfo(bean);
 		if (result) {
 			map.addAttribute("msg", "Employee added Successfully!!!");
@@ -92,12 +114,33 @@ public class EmployeeController {
 		}
 		map.addAttribute("msg", "Employee insertion failed!!!");
 		return false;
-
+		*/
+		if(dao.createEmployeeInfo(bean)) {
+			response.setStatusCode(201);
+			response.setMessage("Successful");
+			response.setDescription("Employee data inserted successfully");
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failure");
+			response.setDescription("Employee data not inserted successfully");
+		}
+		return response;
 	}
 
-	@PutMapping(path = "/updateEmployee")
-	public @ResponseBody boolean updateEmployee(EmployeeInfoBean bean, int managerId, ModelMap map, HttpSession session) {
-
+	@PutMapping(path = "/updateEmployee",
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	public @ResponseBody EmployeeResponse updateEmployee(EmployeeInfoBean bean, int managerId, ModelMap map, HttpSession session) {
+		EmployeeResponse response = new EmployeeResponse();
+		if(dao.updateEmployeeInfo(bean)) {
+			response.setStatusCode(201);
+			response.setMessage("Successful");
+			response.setDescription("Employee data updated successfully");
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failure");
+			response.setDescription("Employee data not updated successfully");
+		}
+		/*
 		List<EmployeeEducationInfoBean> eduBeans = bean.getEducationInfoBeans();
 		for (EmployeeEducationInfoBean employeeEducationInfoBean : eduBeans) {
 			employeeEducationInfoBean.getEducationPKBean().setInfoBean(bean);
@@ -122,6 +165,8 @@ public class EmployeeController {
 			return true;
 		}
 		map.addAttribute("msg", "Employee updation failed!!!");
-		return false;
+		return false;*/
+		
+		return response;
 	}
 }
