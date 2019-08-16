@@ -1,5 +1,8 @@
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import React, { Component } from 'react'
 import Axios from 'axios'
+import createEmployee from '../createAccount/createEmployee';
+import HomePage from '../homePage/HomePage';
 
 export class Login extends Component {
     constructor(props){
@@ -13,7 +16,9 @@ export class Login extends Component {
 
         this.postLoginData = this.postLoginData.bind(this);
     }
+    logoutApp(){
 
+    }
     postLoginData(event) {
         event.preventDefault();
         //let accountData = this.state;
@@ -28,11 +33,17 @@ export class Login extends Component {
                     password:this.state.password
                 }
             }).then((response)=>{
-                console.log(response.data);
-                console.log(response.data.statusCode)
-                if(response.statusCode==401){
+                if(response.data.statusCode==401){
+                    console.log("40111");
                     this.setState({errorMessage:response.data.message});
+                    var element = document.getElementById("errorMsg");
+                    element.classList.remove("hide");
+                    element.classList.add("show");
                 } else{
+                    //Redirect the Application to Employee Home page
+                    let employeeData = response.data.beans[0];
+                    localStorage.setItem("bean",JSON.stringify(employeeData));
+                    this.props.history.push('/HomePage');
 
                 }
             }).catch((error)=>{
@@ -58,15 +69,26 @@ export class Login extends Component {
 
         return validationSuccess;
     }
+
+    openCreateEmployee(event){
+        event.preventDefault();
+        this.props.history.push('/createEmployee');
+    }
+
     render() {
-        return (
+        const {navigation} = this.props;
+        if(navigation)
+        {
+            console.log(navigation)
+        const message = navigation.getParam('message');
+         } return (
             <div className="container">
               <div className="row">
                 <div className="col-md-6 offset-3 card">
                   <div className="card-body">
                     <h4 className="text-center border-bottom">Employee Login</h4>
                     <br />
-                    <div className="alert alert-warning alert-dismissible fade show" role="alert">
+                    <div id="errorMsg" className="alert alert-warning alert-dismissible fade hide"   role="alert">
                       {this.state.errorMessage}
                       <button type="button" className="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">×</span>
@@ -99,8 +121,9 @@ export class Login extends Component {
                       </div>
                       <br />
                       <div className=" row">
-                        <a href="../employee/createEmployeePage" className="offset-1 col-md-5 btn btn-outline-success" style={{borderRadius: '3px 0 0 3px', borderRight: 0}}>Create
-                          Account</a> <a href="forgotpassword.html" className="col-md-5 btn btn-outline-success" style={{borderRadius: '0 3px 3px 0'}}>Forgot Password</a>
+                        <a href="../employee/createEmployeePage" onClick={this.openCreateEmployee.bind(this)} className="offset-1 col-md-5 btn btn-outline-success" style={{borderRadius: '3px 0 0 3px', borderRight: 0}}>Create
+                          Account</a> 
+                        <a href="forgotpassword.html" className="col-md-5 btn btn-outline-success" style={{borderRadius: '0 3px 3px 0'}}>Forgot Password</a>
                       </div>
                     </form>
                   </div>
