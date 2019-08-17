@@ -106,10 +106,10 @@ public final class EmployeeDAOHibernateImpl implements EmployeeDao {
 	@Override
 	public boolean deleteEmployeeInfo(int id) {
 		Transaction txn = null;
-		EmployeeInfoBean bean = new EmployeeInfoBean();
-		bean.setId(id);
+		//EmployeeInfoBean bean = new EmployeeInfoBean();
+		//bean.setId(id);
 		try (Session session = sessionFactory.openSession();) {
-
+			EmployeeInfoBean bean = getEmployeeInfo(id);
 			txn = session.beginTransaction();
 			session.delete(bean);
 			txn.commit();
