@@ -5,20 +5,13 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/techchefs_newdb</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/techchefs_db_test?createDatabaseIfNotExist=true</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.connection.pool_size">1</property>
         <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
-		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
-       <!--  <mapping class="com.tyss.hibernateapp.dto.EmployeeInfoBean" /> -->
-       
-<!-- 	<mapping class="com.tyss.hibernateapp.dto.EmployeeTest"/> -->
-	
-	
-<!-- 	 <mapping class="com.tyss.hibernateapp.dto.EmployeeInfoBean" /> -->
-            
     </session-factory>
 </hibernate-configuration>
