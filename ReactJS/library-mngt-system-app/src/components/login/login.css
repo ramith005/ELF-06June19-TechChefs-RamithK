@@ -1,0 +1,19 @@
+.background{
+    /* The image used */
+    /*background-image: url('../../images/books.jpg');*/
+
+    /* Full height */
+    height: 100%;  
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.margin{
+    margin-top: 10%;
+    text-align: center;
+}
+.box-shadow-class {
+    box-shadow: 7px 10px #888888 !important;
+}
